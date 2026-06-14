@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الناز بهرامی | متخصص تولید محتوا با هوش مصنوعی</title>
+<meta name="description" content="الناز بهرامی، متخصص تولید محتوا با هوش مصنوعی. محتوای AI با روح انسانی برای برندها، و آموزش کاربردی هوش مصنوعی.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6F1;
+    --cream-soft:#F2EAE0;
+    --ink:#1E1B2E;
+    --ink-soft:#5C5775;
+    --gold:#D6A45E;
+    --gold-soft:#F0DAB8;
+    --purple:#6E62E0;
+    --purple-deep:#2C2348;
+    --white:#FFFFFF;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(30,27,46,.08);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Vazirmatn',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.9;
+    overflow-x:hidden;
+  }
+
+  img,svg{display:block;}
+
+  a{text-decoration:none;color:inherit;}
+
+  ul{list-style:none;}
+
+  section{padding:90px 0;}
+
+  .container{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .section-label{
+    display:inline-block;
+    font-size:.85rem;
+    font-weight:600;
+    color:var(--purple);
+    background:rgba(110,98,224,.08);
+    padding:6px 18px;
+    border-radius:50px;
+    margin-bottom:18px;
+    letter-spacing:.5px;
+  }
+
+  h1,h2,h3,h4{font-weight:700;line-height:1.5;}
+
+  h2{font-size:2.2rem;margin-bottom:18px;}
+
+  .lead{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:680px;
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(250,246,241,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(30,27,46,.06);
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 24px;
+    max-width:1140px;
+    margin:0 auto;
+    position:relative;
+  }
+
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:800;
+    font-size:1.15rem;
+  }
+
+  .logo-mark{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--purple),var(--gold));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:1.05rem;
+    font-weight:800;
+    flex-shrink:0;
+  }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+  }
+
+  .nav-links a{
+    font-weight:500;
+    font-size:.98rem;
+    color:var(--ink);
+    transition:color .2s;
+    position:relative;
+  }
+
+  .nav-links a:not(.btn):hover{color:var(--purple);}
+
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+  }
+
+  .menu-toggle span{
+    width:24px;
+    height:2px;
+    background:var(--ink);
+    border-radius:2px;
+    transition:all .25s;
+  }
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 30px;
+    border-radius:50px;
+    font-weight:600;
+    font-size:.95rem;
+    transition:all .25s ease;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+
+  .btn-primary{
+    background:var(--ink);
+    color:#fff;
+  }
+  .btn-primary:hover{
+    background:var(--purple);
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(110,98,224,.3);
+  }
+
+  .btn-outline{
+    border:1px solid rgba(30,27,46,.18);
+    color:var(--ink);
+  }
+  .btn-outline:hover{
+    border-color:var(--purple);
+    color:var(--purple);
+    transform:translateY(-2px);
+  }
+
+  .btn-gold{
+    background:var(--gold);
+    color:var(--ink);
+  }
+  .btn-gold:hover{
+    background:#c79249;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(214,164,94,.35);
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    background:linear-gradient(150deg,var(--purple-deep) 0%, #423568 55%, var(--purple) 100%);
+    color:#fff;
+    padding:120px 0 140px;
+    overflow:hidden;
+  }
+
+  .hero::before,
+  .hero::after{
+    content:'';
+    position:absolute;
+    border-radius:50%;
+    filter:blur(60px);
+    opacity:.35;
+  }
+  .hero::before{
+    width:380px;height:380px;
+    background:var(--gold);
+    top:-120px;
+    inset-inline-end:-120px;
+  }
+  .hero::after{
+    width:300px;height:300px;
+    background:var(--purple);
+    bottom:-100px;
+    inset-inline-start:-80px;
+    opacity:.5;
+  }
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+  }
+
+  .hero .section-label{
+    background:rgba(255,255,255,.1);
+    color:var(--gold-soft);
+  }
+
+  .hero h1{
+    font-size:3.4rem;
+    margin-bottom:10px;
+    letter-spacing:.5px;
+  }
+
+  .hero-tagline{
+    font-size:1.4rem;
+    color:var(--gold-soft);
+    font-weight:600;
+    margin-bottom:24px;
+  }
+
+  .hero p.lead{
+    color:rgba(255,255,255,.82);
+    font-size:1.08rem;
+    max-width:620px;
+    margin-bottom:38px;
+  }
+
+  .hero-buttons{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+
+  .hero .btn-outline{
+    border-color:rgba(255,255,255,.35);
+    color:#fff;
+  }
+  .hero .btn-outline:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+  }
+
+  /* ===== About ===== */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:start;
+    margin-top:40px;
+  }
+
+  .about-text p{
+    color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+
+  .about-text p:first-of-type{
+    font-size:1.1rem;
+    color:var(--ink);
+    font-weight:500;
+  }
+
+  .quote-mark{
+    font-size:3rem;
+    color:var(--gold);
+    font-weight:800;
+    line-height:1;
+    display:block;
+    margin-bottom:6px;
+  }
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+
+  .stat-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:26px 22px;
+    box-shadow:var(--shadow);
+    text-align:center;
+  }
+
+  .stat-card .num{
+    font-size:2.1rem;
+    font-weight:800;
+    color:var(--purple);
+    margin-bottom:6px;
+  }
+
+  .stat-card .label{
+    font-size:.9rem;
+    color:var(--ink-soft);
+  }
+
+  /* ===== Values ===== */
+  .values{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+
+  .value-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:34px 28px;
+    box-shadow:var(--shadow);
+    transition:transform .25s, box-shadow .25s;
+  }
+
+  .value-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 36px rgba(30,27,46,.12);
+  }
+
+  .icon-circle{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:linear-gradient(135deg,rgba(110,98,224,.12),rgba(214,164,94,.18));
+    color:var(--purple);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:18px;
+  }
+
+  .icon-circle svg{width:26px;height:26px;}
+
+  .value-card h3{font-size:1.15rem;margin-bottom:10px;}
+  .value-card p{color:var(--ink-soft);font-size:.95rem;}
+
+  /* ===== Services ===== */
+  .services{background:var(--cream-soft);}
+
+  .service-group{margin-top:54px;}
+
+  .service-group-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+  }
+
+  .service-group-head h3{
+    font-size:1.5rem;
+  }
+
+  .service-group p.lead{margin-bottom:30px;}
+
+  .service-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+  }
+
+  .service-group:nth-of-type(2) .service-cards{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .service-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:30px 24px;
+    box-shadow:var(--shadow);
+    position:relative;
+    transition:transform .25s, box-shadow .25s;
+  }
+
+  .service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 36px rgba(30,27,46,.12);
+  }
+
+  .service-card .icon-circle{
+    background:linear-gradient(135deg,rgba(214,164,94,.18),rgba(110,98,224,.12));
+    color:var(--gold);
+  }
+
+  .service-card h4{
+    font-size:1.05rem;
+    margin-bottom:8px;
+  }
+
+  .service-card p{
+    color:var(--ink-soft);
+    font-size:.92rem;
+  }
+
+  .badge{
+    position:absolute;
+    top:-12px;
+    inset-inline-end:20px;
+    background:var(--ink);
+    color:#fff;
+    font-size:.72rem;
+    font-weight:600;
+    padding:5px 14px;
+    border-radius:50px;
+  }
+
+  .badge.soon{background:var(--gold);color:var(--ink);}
+
+  /* ===== Portfolio ===== */
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:50px;
+    align-items:center;
+    margin-top:40px;
+  }
+
+  .portfolio-video{
+    position:relative;
+    width:100%;
+    max-width:300px;
+    margin:0 auto;
+    aspect-ratio:9/16;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    background:var(--ink);
+  }
+
+  .portfolio-video video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .portfolio-content h3{font-size:1.4rem;margin-bottom:14px;}
+  .portfolio-content p{color:var(--ink-soft);margin-bottom:22px;}
+
+  .tag-list{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .tag{
+    background:var(--white);
+    border:1px solid rgba(30,27,46,.1);
+    padding:7px 16px;
+    border-radius:50px;
+    font-size:.85rem;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+
+  /* ===== Contact ===== */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:50px;
+    margin-top:40px;
+  }
+
+  .contact-info{
+    background:linear-gradient(150deg,var(--purple-deep), var(--purple));
+    color:#fff;
+    border-radius:var(--radius);
+    padding:40px 32px;
+  }
+
+  .contact-info h3{font-size:1.3rem;margin-bottom:14px;}
+  .contact-info > p{color:rgba(255,255,255,.78);margin-bottom:30px;font-size:.95rem;}
+
+  .contact-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:20px;
+    transition:opacity .2s;
+  }
+
+  a.contact-item:hover{opacity:.8;}
+
+  .contact-item .icon-circle{
+    background:rgba(255,255,255,.12);
+    color:var(--gold-soft);
+    flex-shrink:0;
+    transition:background .2s;
+  }
+
+  a.contact-item:hover .icon-circle{
+    background:rgba(255,255,255,.22);
+  }
+
+  .contact-item .ci-text .ci-label{
+    font-size:.78rem;
+    color:rgba(255,255,255,.6);
+    margin-bottom:2px;
+  }
+
+  .contact-item .ci-text .ci-value{
+    font-weight:600;
+    font-size:.98rem;
+  }
+
+  .contact-form{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:40px 32px;
+    box-shadow:var(--shadow);
+  }
+
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+
+  .form-group{margin-bottom:18px;}
+
+  .form-group label{
+    display:block;
+    font-size:.88rem;
+    font-weight:600;
+    margin-bottom:8px;
+    color:var(--ink);
+  }
+
+  .form-group input,
+  .form-group textarea{
+    width:100%;
+    padding:13px 16px;
+    border-radius:12px;
+    border:1px solid rgba(30,27,46,.12);
+    background:var(--cream);
+    font-family:'Vazirmatn',sans-serif;
+    font-size:.95rem;
+    color:var(--ink);
+    resize:vertical;
+    transition:border-color .2s, box-shadow .2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus{
+    outline:none;
+    border-color:var(--purple);
+    box-shadow:0 0 0 3px rgba(110,98,224,.12);
+  }
+
+  .form-group textarea{min-height:130px;}
+
+  .contact-form .btn{width:100%;justify-content:center;}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink);
+    color:rgba(255,255,255,.7);
+    padding:40px 0;
+    text-align:center;
+    font-size:.9rem;
+  }
+
+  footer .foot-tagline{
+    color:var(--gold-soft);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width:980px){
+    .about-grid{grid-template-columns:1fr;gap:40px;}
+    .values{grid-template-columns:repeat(2,1fr);}
+    .service-cards,
+    .service-group:nth-of-type(2) .service-cards{grid-template-columns:repeat(2,1fr);}
+    .portfolio-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:768px){
+    .menu-toggle{display:flex;}
+    .nav-links{
+      position:absolute;
+      top:100%;
+      inset-inline-start:0;
+      inset-inline-end:0;
+      background:var(--cream);
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      padding:10px 24px 24px;
+      border-bottom:1px solid rgba(30,27,46,.06);
+      transform:translateY(-12px);
+      opacity:0;
+      pointer-events:none;
+      transition:all .25s ease;
+    }
+    .nav-links.open{
+      transform:translateY(0);
+      opacity:1;
+      pointer-events:auto;
+    }
+    .nav-links a{
+      padding:12px 0;
+      width:100%;
+      border-bottom:1px solid rgba(30,27,46,.05);
+    }
+    .nav-links .btn{margin-top:10px;}
+
+    .hero{padding:90px 0 100px;}
+    .hero h1{font-size:2.4rem;}
+    .hero-tagline{font-size:1.15rem;}
+
+    h2{font-size:1.7rem;}
+
+    .values{grid-template-columns:1fr;}
+    .service-cards,
+    .service-group:nth-of-type(2) .service-cards{grid-template-columns:1fr;}
+    .stats{grid-template-columns:1fr 1fr;}
+    .form-row{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark">ا.ب</span>
+      <span>الناز بهرامی</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">معرفی</a></li>
+      <li><a href="#services">خدمات</a></li>
+      <li><a href="#portfolio">نمونه‌کار</a></li>
+      <li><a href="#contact">تماس</a></li>
+      <li><a href="#contact" class="btn btn-gold">همکاری با من</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="باز کردن منو">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="section-label">متخصص تولید محتوا با هوش مصنوعی</span>
+      <h1>الناز بهرامی</h1>
+      <p class="hero-tagline">ذوق استراتژیک؛ مسیرم از دل تجربه‌ست</p>
+      <p class="lead">
+        ۷ سال تجربه در تولید محتوا، عکاسی و برندینگ رو با تازه‌ترین ابزارهای هوش مصنوعی ترکیب می‌کنم
+        تا محتوایی بسازم که هم سریع و مدرنه، هم با فکر و خاص؛ برای برندهایی که نمی‌خوان
+        محتوایشون شبیه بقیه‌ی محتواهای AI به نظر برسه.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-gold">بیا همکاری کنیم</a>
+        <a href="#services" class="btn btn-outline">خدمات من</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <span class="section-label">معرفی</span>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>محتوای هوش مصنوعی با روح انسانی</h2>
+          <p>
+            اکثر محتوایی که با هوش مصنوعی ساخته می‌شه، یه شکل و یه لحن دارن.
+            من یه چیز دیگه اضافه می‌کنم: <strong>ذوق استراتژیک</strong>.
+            ترکیبی از فکر و استراتژی با حس و روح انسانی؛ چیزی که AI به‌تنهایی نمی‌تونه بسازه.
+          </p>
+          <span class="quote-mark">«</span>
+          <p>
+            از سال ۲۰۱۷ با عکاسی غذا و مدیریت پیج برندها شروع کردم،
+            و سال‌ها تجربه‌ی ساختن از صفر، بدون کلاس و بدون استاد. هر مرحله یه چیزی بهم اضافه کرد:
+            چشم بصری، شناخت مخاطب، و توانایی ساختن مستقل.
+          </p>
+          <p>
+            الان با هوش مصنوعی کار می‌کنم؛ ابزاری سریع و دقیق، اما بدون روح.
+            کاری که من می‌کنم اینه که اون روح رو به محتوای AI برمی‌گردونم؛
+            محتوایی که هم پشتش فکره، هم زنده‌ست.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat-card">
+            <div class="num">+۷</div>
+            <div class="label">سال تجربه در تولید محتوا و برندینگ</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">۴</div>
+            <div class="label">دوره‌ی آموزشی حضوری AI برگزار شده</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">۲</div>
+            <div class="label">کشور همکاری بین‌المللی (کانادا و انگلیس)</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">اهواز</div>
+            <div class="label">مقر فعالیت و برگزاری دوره‌های حضوری</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="values">
+        <div class="value-card">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5 13 14l-4.5 1.5L10 11l4.5-1.5z"/></svg>
+          </div>
+          <h3>کنجکاوی فعال</h3>
+          <p>دنیای AI هر هفته تغییر می‌کنه. جلوتر از موج می‌مونم؛ هر ابزار جدید رو تست می‌کنم و نتیجه‌ش رو وارد پروژه‌های واقعی می‌کنم.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>صداقت کاری</h3>
+          <p>اگه پروژه‌ای به درد برندت نخوره، می‌گم. اگه AI جوابگو نباشه، می‌گم. بدون اغراق و بدون ژست؛ حرف و نتیجه یکیه.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 4-3 7-7 7 4 0 7 3 7 7 0-4 3-7 7-7-4 0-7-3-7-7z"/></svg>
+          </div>
+          <h3>ساخت با روح</h3>
+          <p>هیچ کاری بی‌فکر ساخته نمی‌شه. هرچی می‌سازم هم زیباست، هم زنده‌ست؛ یه چیزی داره که مخاطب رو نگه می‌داره.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <span class="section-label">خدمات</span>
+      <h2>چطور می‌تونم کمکت کنم؟</h2>
+      <p class="lead">
+        خدماتم دو شاخه‌ی اصلی دارن که کنار هم یک مسیر کامل می‌سازن:
+        تولید محتوا برای برند تو، و یاد دادن اینکه چطور خودت این کار رو با هوش مصنوعی انجام بدی.
+      </p>
+
+      <!-- Group 1 -->
+      <div class="service-group">
+        <div class="service-group-head">
+          <h3>تولید محتوا برای برندها</h3>
+        </div>
+        <p class="lead">برای برندهای کوچک و متوسط که می‌خوان با هوش مصنوعی محتوا بسازن، ولی نمی‌خوان شبیه بقیه به نظر برسن.</p>
+        <div class="service-cards">
+          <div class="service-card">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+            </div>
+            <h4>پروژه‌های ماهانه‌ی محتوا</h4>
+            <p>پکیج کامل محتوا برای صفحه‌ی برندت؛ از ایده و استراتژی تا تولید نهایی، هر ماه.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            </div>
+            <h4>محتوای UGC اختصاصی</h4>
+            <p>محتوای کاربر-ساخته با لحن واقعی و انسانی، طراحی‌شده برای جذب مخاطب در شبکه‌های اجتماعی.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>
+            </div>
+            <h4>پروژه‌های عکاسی و ویدیو</h4>
+            <p>عکاسی و فیلم‌برداری محصول و محتوای برند، با ترکیب چشم بصری ۷ ساله و ابزارهای AI.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/><circle cx="17" cy="7" r="2.5"/><path d="M16 12.5c2.8.3 5 2 5 5"/></svg>
+            </div>
+            <h4>کار تیمی با ادیتور و ادمین</h4>
+            <p>همکاری هماهنگ با تیم محتوای برند تو؛ از ادیتور تا ادمین، برای یک خروجی یکپارچه.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 2 -->
+      <div class="service-group">
+        <div class="service-group-head">
+          <h3>آموزش هوش مصنوعی</h3>
+        </div>
+        <p class="lead">برای ادمین‌ها، فریلنسرها و صاحبان کسب‌وکار که می‌خوان از هوش مصنوعی در کارشون استفاده کنن، ولی نمی‌دونن از کجا شروع کنن.</p>
+        <div class="service-cards">
+          <div class="service-card">
+            <span class="badge">در حال اجرا</span>
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <h4>دوره‌های حضوری اهواز</h4>
+            <p>آموزش پروژه‌محور هوش مصنوعی، با تمرکز بر کاربردهای واقعی در تولید محتوا و مدیریت برند.</p>
+          </div>
+          <div class="service-card">
+            <span class="badge soon">به‌زودی</span>
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            </div>
+            <h4>دوره‌های آنلاین</h4>
+            <p>نسخه‌ی آنلاین دوره‌های AI، برای فارسی‌زبانان سراسر دنیا، به‌زودی در دسترس.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.3.2.5.6.5 1v.6h6v-.6c0-.4.2-.8.5-1A6 6 0 0 0 12 3z"/></svg>
+            </div>
+            <h4>ورکشاپ‌های تخصصی</h4>
+            <p>کارگاه‌های کوتاه و کاربردی روی ابزارهای خاص AI، برای تیم‌ها و کسب‌وکارها.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <div class="container">
+      <span class="section-label">نمونه‌کار</span>
+      <h2>یه نمونه از کارهام</h2>
+      <p class="lead">
+        یکی از پروژه‌های اخیر؛ محتوای ویدیویی برای یک برند برگر، با ترکیب عکاسی، ادیت
+        و کمک ابزارهای هوش مصنوعی. هدفش محتوایی بود که هم زیبا باشه، هم مخاطب رو نگه داره.
+      </p>
+      <div class="portfolio-grid">
+        <div class="portfolio-video">
+          <video src="برگرmp4.mp4" controls muted loop playsinline></video>
+        </div>
+        <div class="portfolio-content">
+          <h3>محتوای ویدیویی برند برگر</h3>
+          <p>
+            تولید و ادیت یک ویدیوی کوتاه برای شبکه‌های اجتماعی؛ با تمرکز روی نورپردازی،
+            ریتم و لحن انسانی، طوری که حس محتوای ماشینی نده.
+          </p>
+          <div class="tag-list">
+            <span class="tag">UGC</span>
+            <span class="tag">ویدیو و عکاسی</span>
+            <span class="tag">ادیت با AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <span class="section-label">تماس</span>
+      <h2>بیا گفتگو رو شروع کنیم</h2>
+      <p class="lead">
+        برای همکاری در پروژه‌های محتوایی، ثبت‌نام در دوره‌های آموزشی، یا فقط یه گفتگوی دوستانه
+        درباره‌ی هوش مصنوعی و محتوا، خوشحال می‌شم ازت بشنوم.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>راه‌های ارتباطی</h3>
+          <p>پیامت رو بفرست یا از راه‌های زیر در ارتباط باش؛ معمولاً ظرف ۲۴ ساعت پاسخ می‌دم.</p>
+
+          <a class="contact-item" href="mailto:elibahrami1995@gmail.com">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </div>
+            <div class="ci-text">
+              <div class="ci-label">ایمیل</div>
+              <div class="ci-value">elibahrami1995@gmail.com</div>
+            </div>
+          </a>
+
+          <a class="contact-item" href="https://instagram.com/elna1zbahramii" target="_blank" rel="noopener">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg>
+            </div>
+            <div class="ci-text">
+              <div class="ci-label">اینستاگرام</div>
+              <div class="ci-value">elna1zbahramii</div>
+            </div>
+          </a>
+
+          <a class="contact-item" href="https://wa.me/989304009383" target="_blank" rel="noopener">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4L21 21l-4.3-1.1a8.5 8.5 0 1 1 4.3-8.4z"/></svg>
+            </div>
+            <div class="ci-text">
+              <div class="ci-label">واتساپ</div>
+              <div class="ci-value">۰۹۳۰۴۰۰۹۳۸۳</div>
+            </div>
+          </a>
+
+          <div class="contact-item">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <div class="ci-text">
+              <div class="ci-label">موقعیت</div>
+              <div class="ci-value">اهواز، ایران</div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">نام و نام خانوادگی</label>
+              <input type="text" id="name" name="name" placeholder="مثلاً: سارا محمدی" required>
+            </div>
+            <div class="form-group">
+              <label for="email">ایمیل</label>
+              <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">موضوع</label>
+            <input type="text" id="subject" name="subject" placeholder="مثلاً: همکاری در پروژه محتوا">
+          </div>
+          <div class="form-group">
+            <label for="message">پیام شما</label>
+            <textarea id="message" name="message" placeholder="کمی درباره‌ی پروژه یا درخواستت بنویس..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">ارسال پیام</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p class="foot-tagline">مسیرم از دل تجربه‌ست</p>
+    <p>© ۱۴۰۵ الناز بهرامی — تمام حقوق محفوظ است</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Contact form -> open mail client with filled data
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value || 'تماس از طریق سایت';
+    const message = document.getElementById('message').value;
+
+    const body = `نام: ${name}\nایمیل: ${email}\n\n${message}`;
+    const mailto = `mailto:elibahrami1995@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  });
+</script>
+
+</body>
+</html>
