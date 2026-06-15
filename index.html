@@ -14,8 +14,8 @@
     --surface:#FFFFFF;
     --text:#26211C;
     --text-muted:#847A6C;
-    --accent:#8E3540;
-    --accent-dark:#6E2832;
+    --accent:#5C0F1C;
+    --accent-dark:#400A14;
     --border:#E3D9CA;
     --font:'Vazirmatn', sans-serif;
     --radius:18px;
@@ -53,7 +53,7 @@
     font-size:.85rem;
     font-weight:600;
     color:var(--accent);
-    background:rgba(142,53,64,.08);
+    background:rgba(92,15,28,.08);
     padding:6px 18px;
     border-radius:50px;
     margin-bottom:18px;
@@ -167,7 +167,7 @@
   .btn-primary:hover{
     background:var(--accent);
     transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(142,53,64,.3);
+    box-shadow:0 8px 20px rgba(92,15,28,.3);
   }
 
   .btn-outline{
@@ -187,13 +187,13 @@
   .btn-gold:hover{
     background:var(--accent-dark);
     transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(142,53,64,.35);
+    box-shadow:0 8px 20px rgba(92,15,28,.35);
   }
 
   /* ===== Hero ===== */
   .hero{
     position:relative;
-    background:linear-gradient(150deg,var(--accent-dark) 0%, #7E2E39 55%, var(--accent) 100%);
+    background:linear-gradient(150deg,var(--accent-dark) 0%, #4E0D18 55%, var(--accent) 100%);
     color:var(--surface);
     padding:120px 0 140px;
     overflow:hidden;
@@ -348,7 +348,7 @@
     width:52px;
     height:52px;
     border-radius:14px;
-    background:linear-gradient(135deg,rgba(142,53,64,.12),rgba(110,40,50,.18));
+    background:linear-gradient(135deg,rgba(92,15,28,.12),rgba(64,10,20,.18));
     color:var(--accent);
     display:flex;
     align-items:center;
@@ -361,69 +361,104 @@
   .value-card h3{font-size:1.15rem;margin-bottom:10px;}
   .value-card p{color:var(--text-muted);font-size:.95rem;}
 
-  /* ===== Services ===== */
-  .services{background:var(--border);}
+  /* ===== Timeline ===== */
+  .timeline{
+    position:relative;
+    margin-top:50px;
+    padding-inline-start:36px;
+  }
 
-  .service-group{margin-top:54px;}
+  .timeline::before{
+    content:'';
+    position:absolute;
+    inset-inline-start:9px;
+    top:6px;
+    bottom:6px;
+    width:2px;
+    background:var(--border);
+  }
 
-  .service-group-head{
+  .timeline-item{
+    position:relative;
+    padding-bottom:50px;
+  }
+
+  .timeline-item:last-child{padding-bottom:0;}
+
+  .timeline-item::before{
+    content:'';
+    position:absolute;
+    inset-inline-start:-36px;
+    top:4px;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:var(--surface);
+    border:4px solid var(--accent);
+  }
+
+  .timeline-year{
+    display:inline-block;
+    font-size:.85rem;
+    font-weight:700;
+    color:var(--accent);
+    background:rgba(92,15,28,.08);
+    padding:4px 16px;
+    border-radius:50px;
+    margin-bottom:10px;
+  }
+
+  .timeline-item h3{font-size:1.25rem;margin-bottom:8px;}
+  .timeline-item p{color:var(--text-muted);max-width:680px;}
+
+  .timeline-images{
     display:flex;
-    align-items:baseline;
-    gap:16px;
-    margin-bottom:8px;
+    gap:14px;
+    margin-top:18px;
     flex-wrap:wrap;
   }
 
-  .service-group-head h3{
-    font-size:1.5rem;
+  .portfolio-placeholder{
+    width:160px;
+    aspect-ratio:4/5;
+    border-radius:14px;
+    background:var(--border);
+    border:1px dashed rgba(38,33,28,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-muted);
+    font-size:.8rem;
+    text-align:center;
+    padding:10px;
   }
 
-  .service-group p.lead{margin-bottom:30px;}
+  /* ===== Brands ===== */
+  .brands{background:var(--border);}
 
-  .service-cards{
+  .pricing-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:22px;
-  }
-
-  .service-group:nth-of-type(2) .service-cards{
     grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-top:50px;
   }
 
-  .service-card{
+  .pricing-card{
     background:var(--surface);
     border-radius:var(--radius);
-    padding:30px 24px;
+    padding:32px 26px;
     box-shadow:var(--shadow);
     position:relative;
-    transition:transform .25s, box-shadow .25s;
+    border:2px solid transparent;
   }
 
-  .service-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 16px 36px rgba(38,33,28,.12);
-  }
+  .pricing-card.featured{border-color:var(--accent);}
 
-  .service-card .icon-circle{
-    background:linear-gradient(135deg,rgba(110,40,50,.18),rgba(142,53,64,.12));
-    color:var(--accent-dark);
-  }
-
-  .service-card h4{
-    font-size:1.05rem;
-    margin-bottom:8px;
-  }
-
-  .service-card p{
-    color:var(--text-muted);
-    font-size:.92rem;
-  }
-
-  .badge{
+  .pricing-badge{
     position:absolute;
     top:-12px;
-    inset-inline-end:20px;
-    background:var(--text);
+    inset-inline-end:24px;
+    background:var(--accent);
     color:var(--surface);
     font-size:.72rem;
     font-weight:600;
@@ -431,7 +466,143 @@
     border-radius:50px;
   }
 
-  .badge.soon{background:var(--accent);color:var(--surface);}
+  .pricing-card h4{font-size:1.15rem;margin-bottom:10px;}
+  .pricing-card p{color:var(--text-muted);font-size:.92rem;margin-bottom:22px;}
+
+  .pricing-price{
+    font-weight:700;
+    font-size:1.02rem;
+    color:var(--accent);
+    padding-top:18px;
+    border-top:1px solid var(--border);
+  }
+
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    margin-top:54px;
+  }
+
+  .process-step{text-align:center;}
+
+  .process-num{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:var(--accent);
+    color:var(--surface);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:1.1rem;
+    margin:0 auto 16px;
+  }
+
+  .process-step h4{font-size:1rem;margin-bottom:8px;}
+  .process-step p{color:var(--text-muted);font-size:.9rem;}
+
+  .cta-box{
+    margin-top:60px;
+    background:linear-gradient(150deg,var(--accent-dark), var(--accent));
+    border-radius:var(--radius);
+    padding:44px 36px;
+    text-align:center;
+    color:var(--surface);
+  }
+
+  .cta-box h3{font-size:1.5rem;margin-bottom:10px;}
+  .cta-box p{color:rgba(255,255,255,.82);margin-bottom:24px;}
+  .cta-box .btn{background:var(--surface);color:var(--accent);}
+  .cta-box .btn:hover{background:var(--border);transform:translateY(-2px);}
+
+  /* ===== Education ===== */
+  .badge-pill{
+    display:inline-block;
+    background:var(--accent);
+    color:var(--surface);
+    font-size:.78rem;
+    font-weight:600;
+    padding:5px 16px;
+    border-radius:50px;
+    margin-bottom:16px;
+  }
+
+  .edu-feature{
+    background:var(--surface);
+    border:2px solid var(--accent);
+    border-radius:var(--radius);
+    padding:40px 32px;
+    box-shadow:var(--shadow);
+    margin-top:50px;
+  }
+
+  .edu-feature h3{font-size:1.5rem;margin-bottom:6px;}
+  .edu-feature h4{margin-bottom:14px;}
+
+  .edu-meta{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-bottom:26px;
+    color:var(--text-muted);
+    font-size:.95rem;
+  }
+
+  .edu-meta strong{color:var(--accent);}
+
+  .info-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-bottom:30px;
+  }
+
+  .info-box{
+    background:var(--bg);
+    border-radius:12px;
+    padding:16px;
+    text-align:center;
+  }
+
+  .info-box .info-label{font-size:.82rem;color:var(--text-muted);margin-bottom:4px;}
+  .info-box .info-value{font-weight:700;font-size:1rem;}
+
+  .check-list{margin-bottom:34px;}
+  .check-list li{
+    display:flex;
+    gap:10px;
+    margin-bottom:12px;
+    color:var(--text);
+  }
+
+  .edu-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-top:24px;
+  }
+
+  .edu-card{
+    background:var(--surface);
+    border-radius:var(--radius);
+    padding:34px 28px;
+    box-shadow:var(--shadow);
+  }
+
+  .edu-card h4{font-size:1.2rem;margin-bottom:14px;}
+  .edu-card p{color:var(--text-muted);margin-bottom:14px;}
+  .edu-card .edu-price{font-weight:700;color:var(--accent);margin-bottom:22px;}
+
+  .lead-magnet{
+    background:var(--border);
+    border-radius:var(--radius);
+    padding:34px 28px;
+  }
+
+  .lead-magnet h4{font-size:1.2rem;margin-bottom:10px;}
+  .lead-magnet p{color:var(--text-muted);margin-bottom:22px;}
 
   /* ===== Portfolio ===== */
   .portfolio-grid{
@@ -554,7 +725,8 @@
   }
 
   .form-group input,
-  .form-group textarea{
+  .form-group textarea,
+  .form-group select{
     width:100%;
     padding:13px 16px;
     border-radius:12px;
@@ -568,15 +740,38 @@
   }
 
   .form-group input:focus,
-  .form-group textarea:focus{
+  .form-group textarea:focus,
+  .form-group select:focus{
     outline:none;
     border-color:var(--accent);
-    box-shadow:0 0 0 3px rgba(142,53,64,.12);
+    box-shadow:0 0 0 3px rgba(92,15,28,.12);
   }
 
   .form-group textarea{min-height:130px;}
 
-  .contact-form .btn{width:100%;justify-content:center;}
+  .radio-group{
+    display:flex;
+    gap:24px;
+    margin-top:8px;
+  }
+
+  .radio-group label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:500;
+    font-size:.95rem;
+    cursor:pointer;
+  }
+
+  .radio-group input{
+    width:18px;
+    height:18px;
+    accent-color:var(--accent);
+  }
+
+  .contact-form .btn,
+  .btn-block{width:100%;justify-content:center;}
 
   /* ===== Footer ===== */
   footer{
@@ -597,8 +792,10 @@
   @media (max-width:980px){
     .about-grid{grid-template-columns:1fr;gap:40px;}
     .values{grid-template-columns:repeat(2,1fr);}
-    .service-cards,
-    .service-group:nth-of-type(2) .service-cards{grid-template-columns:repeat(2,1fr);}
+    .pricing-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .info-grid{grid-template-columns:repeat(2,1fr);}
+    .edu-grid{grid-template-columns:1fr;}
     .portfolio-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
   }
@@ -640,11 +837,15 @@
     h2{font-size:1.7rem;}
 
     .values{grid-template-columns:1fr;}
-    .service-cards,
-    .service-group:nth-of-type(2) .service-cards{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
     .stats{grid-template-columns:1fr 1fr;}
     .form-row{grid-template-columns:1fr;}
     section{padding:64px 0;}
+
+    .timeline{padding-inline-start:28px;}
+    .timeline-item::before{inset-inline-start:-28px;}
+    .portfolio-placeholder{width:130px;}
+    .edu-meta{flex-direction:column;gap:8px;}
   }
 </style>
 </head>
@@ -658,7 +859,8 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">معرفی</a></li>
-      <li><a href="#services">خدمات</a></li>
+      <li><a href="#brands">برندها</a></li>
+      <li><a href="#education">آموزش</a></li>
       <li><a href="#portfolio">نمونه‌کار</a></li>
       <li><a href="#contact">تماس</a></li>
       <li><a href="#contact" class="btn btn-gold">همکاری با من</a></li>
@@ -760,84 +962,232 @@
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="services">
+  <!-- Timeline -->
+  <section id="journey">
     <div class="container">
-      <span class="section-label">خدمات</span>
-      <h2>چطور می‌تونم کمکت کنم؟</h2>
-      <p class="lead">
-        خدماتم دو شاخه‌ی اصلی دارن که کنار هم یک مسیر کامل می‌سازن:
-        تولید محتوا برای برند تو، و یاد دادن اینکه چطور خودت این کار رو با هوش مصنوعی انجام بدی.
-      </p>
-
-      <!-- Group 1 -->
-      <div class="service-group">
-        <div class="service-group-head">
-          <h3>تولید محتوا برای برندها</h3>
+      <h2>مسیرم از دل تجربه‌ست</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">۲۰۱۷</span>
+          <h3>شروع با گوشی</h3>
+          <p>اولین قدم. بدون کلاس، بدون استاد — فقط چشم و ذوق. از همینجا یاد گرفتم چطور ببینم.</p>
         </div>
-        <p class="lead">برای برندهای کوچک و متوسط که می‌خوان با هوش مصنوعی محتوا بسازن، ولی نمی‌خوان شبیه بقیه به نظر برسن.</p>
-        <div class="service-cards">
-          <div class="service-card">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
-            </div>
-            <h4>پروژه‌های ماهانه‌ی محتوا</h4>
-            <p>پکیج کامل محتوا برای صفحه‌ی برندت؛ از ایده و استراتژی تا تولید نهایی، هر ماه.</p>
+        <div class="timeline-item">
+          <span class="timeline-year">۲۰۱۹</span>
+          <h3>MFC میزبان</h3>
+          <p>عکاسی محصول خلاقانه برای یکی از برندهای فست‌فود اهواز. اینجا فهمیدم استایل یعنی چی.</p>
+          <div class="timeline-images">
+            <div class="portfolio-placeholder">تصویر نمونه</div>
+            <div class="portfolio-placeholder">تصویر نمونه</div>
           </div>
-          <div class="service-card">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
-            </div>
-            <h4>محتوای UGC اختصاصی</h4>
-            <p>محتوای کاربر-ساخته با لحن واقعی و انسانی، طراحی‌شده برای جذب مخاطب در شبکه‌های اجتماعی.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">۲۰۲۲</span>
+          <h3>Papa Factory</h3>
+          <p>UGC و عکاسی محصول برای یه برند غذایی خلاق. اینجا با مفهوم روایت تصویری آشنا شدم.</p>
+          <div class="timeline-images">
+            <div class="portfolio-placeholder">تصویر نمونه</div>
+            <div class="portfolio-placeholder">تصویر نمونه</div>
           </div>
-          <div class="service-card">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>
-            </div>
-            <h4>پروژه‌های عکاسی و ویدیو</h4>
-            <p>عکاسی و فیلم‌برداری محصول و محتوای برند، با ترکیب چشم بصری ۷ ساله و ابزارهای AI.</p>
-          </div>
-          <div class="service-card">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/><circle cx="17" cy="7" r="2.5"/><path d="M16 12.5c2.8.3 5 2 5 5"/></svg>
-            </div>
-            <h4>کار تیمی با ادیتور و ادمین</h4>
-            <p>همکاری هماهنگ با تیم محتوای برند تو؛ از ادیتور تا ادمین، برای یک خروجی یکپارچه.</p>
-          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">۲۰۲۶ — الان</span>
+          <h3>محتوای AI با روح انسانی</h3>
+          <p>۷ سال تجربه + ابزارهای AI = محتوایی که هم سریعه، هم زنده‌ست. این همون چیزیه که AI به‌تنهایی نمی‌تونه بسازه.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section id="brands" class="brands">
+    <div class="container">
+      <span class="section-label">برندها</span>
+      <h2>محتوای حرفه‌ای با هوش مصنوعی، برای برندی که نمی‌خواد شبیه بقیه باشه</h2>
+      <p class="lead">من محتوا می‌سازم — سریع، با فکر، و با روح. تو برند داری، من بقیه‌اش رو می‌دونم.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card featured">
+          <span class="pricing-badge">مقرون‌به‌صرفه</span>
+          <h4>عکس و ویدیو با AI</h4>
+          <p>با قیمتی کمتر از عکاسی حرفه‌ای، کیفیتی بهتر از آیفون می‌گیری — بدون دوربین، استودیو، یا فتوشوت.</p>
+          <div class="pricing-price">بسته به حجم — پیام بده</div>
+        </div>
+        <div class="pricing-card">
+          <h4>پکیج پست</h4>
+          <p>تولید پست اختصاصی برند — بسته به تعداد و نوع محتوا</p>
+          <div class="pricing-price">برای قیمت پیام بده</div>
+        </div>
+        <div class="pricing-card">
+          <h4>پکیج کامل</h4>
+          <p>۹ پست (اسلایدی یا ریل) + استوری + آپلود + ادمین حضوری</p>
+          <div class="pricing-price">از ۳۰ میلیون تومان</div>
         </div>
       </div>
 
-      <!-- Group 2 -->
-      <div class="service-group">
-        <div class="service-group-head">
-          <h3>آموزش هوش مصنوعی</h3>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-num">۱</div>
+          <h4>آشنایی</h4>
+          <p>برند، مخاطب، و هدفت رو بهم می‌گی</p>
         </div>
-        <p class="lead">برای ادمین‌ها، فریلنسرها و صاحبان کسب‌وکار که می‌خوان از هوش مصنوعی در کارشون استفاده کنن، ولی نمی‌دونن از کجا شروع کنن.</p>
-        <div class="service-cards">
-          <div class="service-card">
-            <span class="badge">در حال اجرا</span>
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            </div>
-            <h4>دوره‌های حضوری اهواز</h4>
-            <p>آموزش پروژه‌محور هوش مصنوعی، با تمرکز بر کاربردهای واقعی در تولید محتوا و مدیریت برند.</p>
+        <div class="process-step">
+          <div class="process-num">۲</div>
+          <h4>برنامه‌ریزی</h4>
+          <p>تقویم محتوایی و ایده‌ها آماده می‌شن</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">۳</div>
+          <h4>تولید</h4>
+          <p>محتوا ساخته، چک، و تحویل داده می‌شه</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">۴</div>
+          <h4>بهبود</h4>
+          <p>هر ماه بهتر از قبل می‌شیم</p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h3>آماده‌ای شروع کنیم؟</h3>
+        <p>بهم بگو برندت چیه — بقیه‌اش با منه.</p>
+        <a href="https://wa.me/989304009383" target="_blank" rel="noopener" class="btn">واتساپ بزن</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <span class="section-label">آموزش</span>
+      <h2>یاد بگیر با AI کار کنی — نه فقط ازش استفاده کنی</h2>
+      <p class="lead">آموزش کاربردی هوش مصنوعی، از کسی که خودش هر روز باهاش کار می‌کنه.</p>
+
+      <div class="edu-feature">
+        <span class="badge-pill">ظرفیت محدود</span>
+        <h3>کلاس نیمه خصوصی AI</h3>
+        <div class="edu-meta">
+          <span>تاریخ: نیمه دوم تیرماه — اهواز</span>
+          <span>شهریه: <strong>۱۲ میلیون تومان</strong></span>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-label">مدت</div>
+            <div class="info-value">یک ماه</div>
           </div>
-          <div class="service-card">
-            <span class="badge soon">به‌زودی</span>
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
-            </div>
-            <h4>دوره‌های آنلاین</h4>
-            <p>نسخه‌ی آنلاین دوره‌های AI، برای فارسی‌زبانان سراسر دنیا، به‌زودی در دسترس.</p>
+          <div class="info-box">
+            <div class="info-label">جلسات</div>
+            <div class="info-value">۸ جلسه</div>
           </div>
-          <div class="service-card">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.3.2.5.6.5 1v.6h6v-.6c0-.4.2-.8.5-1A6 6 0 0 0 12 3z"/></svg>
-            </div>
-            <h4>ورکشاپ‌های تخصصی</h4>
-            <p>کارگاه‌های کوتاه و کاربردی روی ابزارهای خاص AI، برای تیم‌ها و کسب‌وکارها.</p>
+          <div class="info-box">
+            <div class="info-label">برگزاری</div>
+            <div class="info-value">هفته‌ای دو بار</div>
           </div>
+          <div class="info-box">
+            <div class="info-label">ظرفیت</div>
+            <div class="info-value">محدود</div>
+          </div>
+        </div>
+
+        <h4>بعد از کلاس می‌تونی:</h4>
+        <ul class="check-list">
+          <li><span>✅</span><span>عکس محصول حرفه‌ای با AI بسازی — بدون دوربین و فتوشوت</span></li>
+          <li><span>✅</span><span>ویدیوی برند تولید کنی</span></li>
+          <li><span>✅</span><span>استراتژی محتوا بنویسی</span></li>
+          <li><span>✅</span><span>پرامپت‌نویسی خلاقانه بلد بشی</span></li>
+          <li><span>✅</span><span>تمام فایل‌ها و پرامپت‌های کلاس مال خودته — برای همیشه</span></li>
+        </ul>
+
+        <form id="classForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="classname">اسم</label>
+              <input type="text" id="classname" name="classname" placeholder="نام و نام خانوادگی" required>
+            </div>
+            <div class="form-group">
+              <label for="classrole">حیطه فعالیت</label>
+              <select id="classrole" name="classrole" required>
+                <option value="" disabled selected>انتخاب کن</option>
+                <option value="ادمین پیج">ادمین پیج</option>
+                <option value="فریلنسر">فریلنسر</option>
+                <option value="صاحب کسب‌وکار">صاحب کسب‌وکار</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="classbiz">نوع کسب‌وکار</label>
+              <select id="classbiz" name="classbiz" required>
+                <option value="" disabled selected>انتخاب کن</option>
+                <option value="رستوران/کافه/غذا">رستوران/کافه/غذا</option>
+                <option value="کلینیک زیبایی/سلامت">کلینیک زیبایی/سلامت</option>
+                <option value="فروشگاه/محصول">فروشگاه/محصول</option>
+                <option value="خدمات (آموزش، مشاوره و...)">خدمات (آموزش، مشاوره و...)</option>
+                <option value="سایر">سایر</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="classexp">چند وقته کار می‌کنی؟</label>
+              <select id="classexp" name="classexp">
+                <option value="" disabled selected>انتخاب کن</option>
+                <option value="کمتر از ۱ سال">کمتر از ۱ سال</option>
+                <option value="۱ تا ۳ سال">۱ تا ۳ سال</option>
+                <option value="۳ تا ۵ سال">۳ تا ۵ سال</option>
+                <option value="بیشتر از ۵ سال">بیشتر از ۵ سال</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>تا حالا با AI کار کردی؟</label>
+            <div class="radio-group">
+              <label><input type="radio" name="classai" value="بله" checked> بله</label>
+              <label><input type="radio" name="classai" value="خیر"> خیر</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="classgoal">هدفت از کلاس چیه؟</label>
+            <textarea id="classgoal" name="classgoal" placeholder="کمی درباره‌ی هدفت بنویس..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">ثبت‌نام — واتساپ</button>
+        </form>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h4>جلسه راهنمایی شخصی</h4>
+          <p>اگه مشکل قیمت‌گذاری، جذب مشتری، یا ساختن پورتفولیو داری — یا می‌خوای بدونی مسیر کار با AI چیه و چطور ازش درآمد بسازی — این جلسه برات طراحی شده.</p>
+          <p><strong>یه جلسه، یه مشکل مشخص، یه راه‌حل واقعی.</strong></p>
+          <div class="edu-price">۱ ساعت — ۱،۵۰۰،۰۰۰ تومان</div>
+          <a href="https://wa.me/989304009383" target="_blank" rel="noopener" class="btn btn-gold btn-block">رزرو جلسه</a>
+        </div>
+
+        <div class="lead-magnet">
+          <h4>۵۰ پرامپت ویژه کسب‌وکارها — رایگان</h4>
+          <p>شماره و حیطه کاریت رو بذار، پرامپت‌ها رو بگیر.</p>
+          <form id="promptForm">
+            <div class="form-group">
+              <label for="promptphone">شماره تماس</label>
+              <input type="tel" id="promptphone" name="promptphone" placeholder="09xxxxxxxxx" required>
+            </div>
+            <div class="form-group">
+              <label for="promptcategory">حیطه کاری</label>
+              <select id="promptcategory" name="promptcategory" required>
+                <option value="" disabled selected>انتخاب کن</option>
+                <option value="رستوران/کافه/غذا">رستوران/کافه/غذا</option>
+                <option value="کلینیک زیبایی/سلامت">کلینیک زیبایی/سلامت</option>
+                <option value="فروشگاه/محصول">فروشگاه/محصول</option>
+                <option value="ادمین/فریلنسر">ادمین/فریلنسر</option>
+                <option value="خدمات">خدمات</option>
+                <option value="سایر">سایر</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="promptemail">ایمیل (اختیاری)</label>
+              <input type="email" id="promptemail" name="promptemail" placeholder="example@email.com">
+            </div>
+            <button type="submit" class="btn btn-gold btn-block">دریافت رایگان</button>
+          </form>
         </div>
       </div>
     </div>
@@ -985,6 +1335,40 @@
     const body = `نام: ${name}\nایمیل: ${email}\n\n${message}`;
     const mailto = `mailto:elibahrami1995@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
+  });
+
+  // AI class registration form -> WhatsApp
+  const classForm = document.getElementById('classForm');
+  classForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const lines = [
+      'سلام، می‌خوام برای کلاس نیمه خصوصی AI ثبت‌نام کنم:',
+      `اسم: ${document.getElementById('classname').value}`,
+      `حیطه فعالیت: ${document.getElementById('classrole').value}`,
+      `نوع کسب‌وکار: ${document.getElementById('classbiz').value}`,
+    ];
+    const exp = document.getElementById('classexp').value;
+    if (exp) lines.push(`سابقه کار: ${exp}`);
+    lines.push(`تجربه قبلی با AI: ${classForm.querySelector('input[name="classai"]:checked').value}`);
+    const goal = document.getElementById('classgoal').value;
+    if (goal) lines.push(`هدف از کلاس: ${goal}`);
+
+    window.open(`https://wa.me/989304009383?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+  });
+
+  // Free prompt pack form -> WhatsApp
+  const promptForm = document.getElementById('promptForm');
+  promptForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const lines = [
+      'سلام، می‌خوام پکیج ۵۰ پرامپت رایگان رو دریافت کنم:',
+      `شماره تماس: ${document.getElementById('promptphone').value}`,
+      `حیطه کاری: ${document.getElementById('promptcategory').value}`,
+    ];
+    const email2 = document.getElementById('promptemail').value;
+    if (email2) lines.push(`ایمیل: ${email2}`);
+
+    window.open(`https://wa.me/989304009383?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
   });
 </script>
 
