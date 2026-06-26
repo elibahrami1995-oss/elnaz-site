@@ -1,0 +1,17 @@
+name: Deploy to Liara
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Liara
+        run: npx @liara/cli@latest deploy --app elnazbahrami-portfolio --api-token ${{ secrets.LIARA_API_TOKEN }} --yes
