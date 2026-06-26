@@ -1,6 +1,5 @@
 node_modules
 .next
-*.mp4
 *.mov
 *.MOV
 chatbot/.env
