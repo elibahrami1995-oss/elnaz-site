@@ -10,7 +10,7 @@ export default function PortfolioSection() {
         </p>
         <div className="portfolio-grid">
           <div className="portfolio-video">
-            <video src="/برگرmp4.mp4" controls muted loop playsInline />
+            <video src="/portfolio-video.mp4" controls muted loop playsInline />
           </div>
           <div className="portfolio-content">
             <h3>محتوای ویدیویی برند برگر</h3>
