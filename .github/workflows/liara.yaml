@@ -15,3 +15,4 @@ jobs:
 
       - name: Deploy to Liara
         run: npx @liara/cli@latest deploy --app elnazbahrami-portfolio --api-token ${{ secrets.LIARA_API_TOKEN }} 
+--no-app-logs
