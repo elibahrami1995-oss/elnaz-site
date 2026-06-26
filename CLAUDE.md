@@ -1,0 +1,70 @@
+# CLAUDE.md — Elnaz Site
+
+## پروژه
+
+پورتفولیوی شخصی **الناز بهرامی**، متخصص تولید محتوا با هوش مصنوعی و مشاور AI برای کسب‌وکارها.
+
+- زبان: فارسی، راست‌به‌چپ (`dir="rtl"`, `lang="fa"`)
+- فونت: Vazirmatn (Google Fonts)
+- فریمورک: هیچ — تمام کد در یک فایل `index.html` است
+- دیپلوی: Netlify
+- ریپازیتوری: `elibahrami1995-oss/elnaz-site`
+
+## ساختار
+
+```
+index.html          # تمام HTML + CSS + JS داخل‌خطی
+chatbot/            # چت‌بات AI فارسی (Node.js / Express)
+  server.js
+  brain/            # منطق و prompts
+  interfaces/       # رابط کاربری چت‌بات
+  public/
+  scripts/
+  supabase-schema.sql
+project2.mp4.MOV    # ویدئوهای نمونه‌کار
+project3.mp4.mov
+project4.mp4.mov
+برگرmp4.mp4
+```
+
+## بخش‌های صفحه
+
+| id | عنوان |
+|----|-------|
+| hero | صفحه اول / معرفی کوتاه |
+| about | درباره الناز |
+| journey | مسیر حرفه‌ای (تایم‌لاین) |
+| brands | برندهایی که باهاشون کار کرده |
+| education | آموزش و کلاس |
+| portfolio | نمونه‌کار |
+| contact | تماس |
+
+## رنگ‌بندی
+
+تم گرم و کلاسیک با لهجه‌ی بوردو/قرمز تیره:
+
+```css
+--bg:           #FAF6EF   /* پس‌زمینه کرم روشن */
+--surface:      #FFFFFF   /* کارت‌ها و سطح‌های بالا */
+--text:         #26211C   /* متن اصلی تیره */
+--text-muted:   #847A6C   /* متن فرعی */
+--accent:       #5C0F1C   /* رنگ اصلی برند — بوردو */
+--accent-dark:  #400A14   /* سایه تیره‌تر accent */
+--border:       #E3D9CA   /* خط‌ها و جداکننده‌ها */
+--radius:       18px
+--shadow:       0 10px 30px rgba(38,33,28,.08)
+```
+
+## چت‌بات
+
+یک چت‌بات فارسی AI روی Node.js/Express که:
+- روی Antigravity دیپلوی شده
+- از Supabase برای ذخیره مکالمات استفاده می‌کند
+- دایرکتوری جداست (`chatbot/`) و deploy مستقل دارد
+
+## نکات مهم
+
+- هیچ build step ای وجود ندارد — `index.html` مستقیماً serve می‌شود
+- CSS و JS داخل همان فایل است؛ فایل جداگانه نداشته باشد
+- برای تغییر رنگ فقط متغیرهای `:root` را ویرایش کن
+- همه متون فارسی‌اند؛ از RTL layout مراقب باش
