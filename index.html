@@ -1,1593 +1,1908 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الناز بهرامی | متخصص تولید محتوا با هوش مصنوعی</title>
-<meta name="description" content="الناز بهرامی، متخصص تولید محتوا با هوش مصنوعی. محتوای AI با روح انسانی برای برندها، و آموزش کاربردی هوش مصنوعی.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#FAF6EF;
-    --surface:#FFFFFF;
-    --text:#26211C;
-    --text-muted:#847A6C;
-    --accent:#5C0F1C;
-    --accent-dark:#400A14;
-    --border:#E3D9CA;
-    --font:'Vazirmatn', sans-serif;
-    --radius:18px;
-    --shadow:0 10px 30px rgba(38,33,28,.08);
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-
-  html{scroll-behavior:smooth;}
-
-  body{
-    font-family:var(--font);
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.9;
-    overflow-x:hidden;
-  }
-
-  img,svg{display:block;}
-
-  a{text-decoration:none;color:inherit;}
-
-  ul{list-style:none;}
-
-  section{padding:120px 0;}
-
-  .container{
-    max-width:1140px;
-    margin:0 auto;
-    padding:0 24px;
-  }
-
-  .section-label{
-    display:inline-block;
-    font-size:.85rem;
-    font-weight:600;
-    color:var(--accent);
-    background:rgba(92,15,28,.08);
-    padding:6px 18px;
-    border-radius:50px;
-    margin-bottom:18px;
-    letter-spacing:.5px;
-  }
-
-  h1,h2,h3,h4{font-weight:700;line-height:1.5;}
-  h1, h2 { letter-spacing: -0.02em; }
-
-  h2{font-size:2.2rem;margin-bottom:18px;}
-
-  .lead{
-    font-size:1.05rem;
-    color:var(--text-muted);
-    max-width:680px;
-  }
-
-  /* ===== Header ===== */
-  header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:rgba(250,246,239,.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(38,33,28,.06);
-  }
-
-  .nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:18px 24px;
-    max-width:1140px;
-    margin:0 auto;
-    position:relative;
-  }
-
-  .logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-weight:800;
-    font-size:1.15rem;
-  }
-
-  .logo-mark{
-    width:42px;
-    height:42px;
-    border-radius:14px;
-    background:linear-gradient(135deg,var(--accent),var(--accent-dark));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--surface);
-    font-size:1.05rem;
-    font-weight:800;
-    flex-shrink:0;
-  }
-
-  .nav-links{
-    display:flex;
-    align-items:center;
-    gap:38px;
-  }
-
-  .nav-links a{
-    font-weight:500;
-    font-size:.98rem;
-    transition:color .2s;
-    position:relative;
-  }
-
-  .nav-links a:not(.btn){
-    color:var(--text);
-  }
-
-  .nav-links a:not(.btn):hover{color:var(--accent);}
-
-  .menu-toggle{
-    display:none;
-    flex-direction:column;
-    gap:5px;
-    background:none;
-    border:none;
-    cursor:pointer;
-    padding:8px;
-  }
-
-  .menu-toggle span{
-    width:24px;
-    height:2px;
-    background:var(--text);
-    border-radius:2px;
-    transition:all .25s;
-  }
-
-  /* ===== Buttons ===== */
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:13px 30px;
-    border-radius:14px !important;
-    font-weight:600;
-    font-size:.95rem;
-    transition:all .25s ease;
-    border:1px solid transparent;
-    cursor:pointer;
-  }
-
-  .btn-primary{
-    background:var(--text);
-    color:var(--surface);
-  }
-  .btn-primary:hover{
-    background:var(--accent);
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(92,15,28,.3);
-  }
-
-  .btn-outline{
-    border:1px solid rgba(38,33,28,.18);
-    color:var(--text);
-  }
-  .btn-outline:hover{
-    border-color:var(--accent);
-    color:var(--accent);
-    transform:translateY(-2px);
-  }
-
-  .btn-gold{
-    background:var(--accent);
-    color:var(--surface);
-  }
-  .btn-gold:hover{
-    background:var(--accent-dark);
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(92,15,28,.35);
-  }
-
-  /* ===== Hero ===== */
-  .hero{
-    position:relative;
-    background:var(--bg);
-    padding:60px 0 80px;
-  }
-
-  .hero-inner{
-    position:relative;
-    z-index:2;
-    max-width:960px;
-    margin: 0 auto;
-    background: linear-gradient(150deg,var(--accent-dark) 0%, #4E0D18 55%, var(--accent) 100%);
-    border-radius: 32px;
-    padding: 80px 60px;
-    color: var(--surface);
-    box-shadow: 0 20px 40px rgba(92,15,28,.15);
-    overflow: hidden;
-  }
-
-  .hero-inner::before,
-  .hero-inner::after{
-    content:'';
-    position:absolute;
-    border-radius:50%;
-    filter:blur(60px);
-    z-index: 0;
-  }
-  .hero-inner::before{
-    width:380px;height:380px;
-    background:var(--accent-dark);
-    top:-120px;
-    inset-inline-end:-120px;
-    opacity:.4;
-  }
-  .hero-inner::after{
-    width:300px;height:300px;
-    background:var(--surface);
-    bottom:-100px;
-    inset-inline-start:-80px;
-    opacity:.15;
-  }
-
-  .hero-inner > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero .section-label{
-    background:rgba(255,255,255,.1);
-    color:var(--border);
-  }
-
-  .hero h1{
-    font-size:3.4rem;
-    margin-bottom:10px;
-    letter-spacing:.5px;
-  }
-
-  .hero-tagline{
-    font-size:1.4rem;
-    color:var(--border);
-    font-weight:600;
-    margin-bottom:24px;
-  }
-
-  .hero p.lead{
-    color:rgba(255,255,255,.82);
-    font-size:1.08rem;
-    max-width:620px;
-    margin-bottom:38px;
-  }
-
-  .hero-buttons{
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-
-  .hero .btn-outline{
-    border-color:rgba(255,255,255,.35);
-    color:var(--surface);
-  }
-  .hero .btn-outline:hover{
-    border-color:var(--border);
-    color:var(--border);
-  }
-
-  /* ===== About ===== */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:60px;
-    align-items:start;
-    margin-top:40px;
-  }
-
-  .about-text p{
-    color:var(--text-muted);
-    margin-bottom:18px;
-  }
-
-  .about-text p:first-of-type{
-    font-size:1.1rem;
-    color:var(--text);
-    font-weight:500;
-  }
-
-  .quote-mark{
-    font-size:3rem;
-    color:var(--accent);
-    font-weight:800;
-    line-height:1;
-    display:block;
-    margin-bottom:6px;
-
-  }
-
-  .stats{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-  }
-
-  .stat-card{
-    background:var(--surface);
-    border-radius:var(--radius);
-    padding:26px 22px;
-    box-shadow:var(--shadow);
-    text-align:center;
-  }
-
-  .stat-card .num{
-    font-size:2.1rem;
-    font-weight:800;
-    color:var(--accent);
-    margin-bottom:6px;
-  }
-
-  .stat-card .label{
-    font-size:.9rem;
-    color:var(--text-muted);
-  }
-
-  /* ===== Values ===== */
-  .values{
-    margin-top:70px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-    position: relative;
-  }
-
-  /* Blob پشت کارت‌ها برای مشخص شدن افکت شیشه‌ای */
-  .values::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    inset-inline-start: 50%;
-    transform: translate(50%, -50%); /* For RTL: 50% left to right */
-    width: 400px;
-    height: 400px;
-    background: var(--accent);
-    opacity: 0.08;
-    filter: blur(80px);
-    border-radius: 50%;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  html[dir="ltr"] .values::before {
-    transform: translate(-50%, -50%);
-  }
-
-  .value-card{
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 24px;
-    padding:34px 28px;
-    box-shadow: 0 10px 40px rgba(38,33,28,.04);
-    transition:transform .25s, box-shadow .25s;
-    position: relative;
-    z-index: 1;
-  }
-
-  .value-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 16px 36px rgba(38,33,28,.12);
-  }
-
-  .icon-circle{
-    width:52px;
-    height:52px;
-    border-radius:14px;
-    background:linear-gradient(135deg,rgba(92,15,28,.12),rgba(64,10,20,.18));
-    color:var(--accent);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:18px;
-  }
-
-  .icon-circle svg{width:26px;height:26px;}
-
-  .value-card h3{font-size:1.15rem;margin-bottom:10px;}
-  .value-card p{color:var(--text-muted);font-size:.95rem;}
-
-  /* ===== Timeline ===== */
-  .timeline{
-    position:relative;
-    margin-top:50px;
-    padding-inline-start:36px;
-  }
-
-  .timeline::before{
-    content:'';
-    position:absolute;
-    inset-inline-start:9px;
-    top:6px;
-    bottom:6px;
-    width:2px;
-    background:var(--border);
-  }
-
-  .timeline-item{
-    position:relative;
-    padding-bottom:50px;
-  }
-
-  .timeline-item:last-child{padding-bottom:0;}
-
-  .timeline-item::before{
-    content:'';
-    position:absolute;
-    inset-inline-start:-36px;
-    top:4px;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    background:var(--surface);
-    border:4px solid var(--accent);
-  }
-
-  .timeline-year{
-    display:inline-block;
-    font-size:.85rem;
-    font-weight:700;
-    color:var(--accent);
-    background:rgba(92,15,28,.08);
-    padding:4px 16px;
-    border-radius:50px;
-    margin-bottom:10px;
-  }
-
-  .timeline-item h3{font-size:1.25rem;margin-bottom:8px;}
-  .timeline-item p{color:var(--text-muted);max-width:680px;}
-
-  .timeline-images{
-    display:flex;
-    gap:14px;
-    margin-top:18px;
-    flex-wrap:wrap;
-  }
-
-  .portfolio-placeholder{
-    width:160px;
-    aspect-ratio:4/5;
-    border-radius:14px;
-    background:var(--border);
-    border:1px dashed rgba(38,33,28,.18);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--text-muted);
-    font-size:.8rem;
-    text-align:center;
-    padding:10px;
-  }
-
-  /* ===== Brands ===== */
-  .brands{background:var(--border);}
-
-  .pricing-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-    margin-top:50px;
-  }
-
-  .pricing-card{
-    background:var(--surface);
-    border-radius:var(--radius);
-    padding:32px 26px;
-    box-shadow:var(--shadow);
-    position:relative;
-    border:2px solid transparent;
-  }
-
-  .pricing-card.featured{border-color:var(--accent);}
-
-  .pricing-badge{
-    position:absolute;
-    top:-12px;
-    inset-inline-end:24px;
-    background:var(--accent);
-    color:var(--surface);
-    font-size:.72rem;
-    font-weight:600;
-    padding:5px 14px;
-    border-radius:50px;
-  }
-
-  .pricing-card h4{font-size:1.15rem;margin-bottom:10px;}
-  .pricing-card p{color:var(--text-muted);font-size:.92rem;margin-bottom:22px;}
-
-  .pricing-price{
-    font-weight:700;
-    font-size:1.02rem;
-    color:var(--accent);
-    padding-top:18px;
-    border-top:1px solid var(--border);
-  }
-
-  .process-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px;
-    margin-top:54px;
-  }
-
-  .process-step{text-align:center;}
-
-  .process-num{
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    background:var(--accent);
-    color:var(--surface);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-    font-size:1.1rem;
-    margin:0 auto 16px;
-  }
-
-  .process-step h4{font-size:1rem;margin-bottom:8px;}
-  .process-step p{color:var(--text-muted);font-size:.9rem;}
-
-  .cta-box{
-    margin-top:60px;
-    background:linear-gradient(150deg,var(--accent-dark), var(--accent));
-    border-radius:var(--radius);
-    padding:44px 36px;
-    text-align:center;
-    color:var(--surface);
-  }
-
-  .cta-box h3{font-size:1.5rem;margin-bottom:10px;}
-  .cta-box p{color:rgba(255,255,255,.82);margin-bottom:24px;}
-  .cta-box .btn{background:var(--surface);color:var(--accent);}
-  .cta-box .btn:hover{background:var(--border);transform:translateY(-2px);}
-
-  /* ===== Education ===== */
-  .badge-pill{
-    display:inline-block;
-    background:var(--accent);
-    color:var(--surface);
-    font-size:.78rem;
-    font-weight:600;
-    padding:5px 16px;
-    border-radius:50px;
-    margin-bottom:16px;
-  }
-
-  .edu-feature{
-    background:var(--surface);
-    border:2px solid var(--accent);
-    border-radius:var(--radius);
-    padding:40px 32px;
-    box-shadow:var(--shadow);
-    margin-top:50px;
-  }
-
-  .edu-feature h3{font-size:1.5rem;margin-bottom:6px;}
-  .edu-feature h4{margin-bottom:14px;}
-
-  .edu-meta{
-    display:flex;
-    gap:24px;
-    flex-wrap:wrap;
-    margin-bottom:26px;
-    color:var(--text-muted);
-    font-size:.95rem;
-  }
-
-  .edu-meta strong{color:var(--accent);}
-
-  .info-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-    margin-bottom:30px;
-  }
-
-  .info-box{
-    background:var(--bg);
-    border-radius:12px;
-    padding:16px;
-    text-align:center;
-  }
-
-  .info-box .info-label{font-size:.82rem;color:var(--text-muted);margin-bottom:4px;}
-  .info-box .info-value{font-weight:700;font-size:1rem;}
-
-  .check-list{margin-bottom:34px;}
-  .check-list li{
-    display:flex;
-    gap:10px;
-    margin-bottom:12px;
-    color:var(--text);
-  }
-
-  .edu-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
-    margin-top:24px;
-  }
-
-  .edu-card{
-    background:var(--surface);
-    border-radius:var(--radius);
-    padding:34px 28px;
-    box-shadow:var(--shadow);
-  }
-
-  .edu-card h4{font-size:1.2rem;margin-bottom:14px;}
-  .edu-card p{color:var(--text-muted);margin-bottom:14px;}
-  .edu-card .edu-price{font-weight:700;color:var(--accent);margin-bottom:22px;}
-
-  .lead-magnet{
-    background:var(--border);
-    border-radius:var(--radius);
-    padding:34px 28px;
-  }
-
-  .lead-magnet h4{font-size:1.2rem;margin-bottom:10px;}
-  .lead-magnet p{color:var(--text-muted);margin-bottom:22px;}
-
-  /* ===== Portfolio ===== */
-  .portfolio-grid{
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:50px;
-    align-items:center;
-    margin-top:40px;
-  }
-
-  .portfolio-video{
-    position:relative;
-    width:100%;
-    max-width:300px;
-    margin:0 auto;
-    aspect-ratio:9/16;
-    border-radius:28px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    background:var(--text);
-  }
-
-  .portfolio-video video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-
-  .portfolio-content h3{font-size:1.4rem;margin-bottom:14px;}
-  .portfolio-content p{color:var(--text-muted);margin-bottom:22px;}
-
-  .tag-list{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-  }
-
-  .tag{
-    background:var(--surface);
-    border:1px solid rgba(38,33,28,.1);
-    padding:7px 16px;
-    border-radius:50px;
-    font-size:.85rem;
-    font-weight:600;
-    color:var(--text-muted);
-  }
-
-  /* ===== Contact ===== */
-  .contact-grid{
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:50px;
-    margin-top:40px;
-  }
-
-  .contact-info{
-    background:linear-gradient(150deg,var(--accent-dark), var(--accent));
-    color:var(--surface);
-    border-radius:var(--radius);
-    padding:40px 32px;
-  }
-
-  .contact-info h3{font-size:1.3rem;margin-bottom:14px;}
-  .contact-info > p{color:rgba(255,255,255,.78);margin-bottom:30px;font-size:.95rem;}
-
-  .contact-item{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-bottom:20px;
-    transition:opacity .2s;
-  }
-
-  a.contact-item:hover{opacity:.8;}
-
-  .contact-item .icon-circle{
-    background:rgba(255,255,255,.12);
-    color:var(--border);
-    flex-shrink:0;
-    transition:background .2s;
-  }
-
-  a.contact-item:hover .icon-circle{
-    background:rgba(255,255,255,.22);
-  }
-
-  .contact-item .ci-text .ci-label{
-    font-size:.78rem;
-    color:rgba(255,255,255,.6);
-    margin-bottom:2px;
-  }
-
-  .contact-item .ci-text .ci-value{
-    font-weight:600;
-    font-size:.98rem;
-  }
-
-  .contact-form{
-    background:var(--surface);
-    border-radius:var(--radius);
-    padding:40px 32px;
-    box-shadow:var(--shadow);
-  }
-
-  .form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-  }
-
-  .form-group{margin-bottom:18px;}
-
-  .form-group label{
-    display:block;
-    font-size:.88rem;
-    font-weight:600;
-    margin-bottom:8px;
-    color:var(--text);
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .form-group select{
-    width:100%;
-    padding:13px 16px;
-    border-radius:12px;
-    border:1px solid rgba(38,33,28,.12);
-    background:var(--bg);
-    font-family:var(--font);
-    font-size:.95rem;
-    color:var(--text);
-    resize:vertical;
-    transition:border-color .2s, box-shadow .2s;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus{
-    outline:none;
-    border-color:var(--accent);
-    box-shadow:0 0 0 3px rgba(92,15,28,.12);
-  }
-
-  .form-group textarea{min-height:130px;}
-
-  .radio-group{
-    display:flex;
-    gap:24px;
-    margin-top:8px;
-  }
-
-  .radio-group label{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:500;
-    font-size:.95rem;
-    cursor:pointer;
-  }
-
-  .radio-group input{
-    width:18px;
-    height:18px;
-    accent-color:var(--accent);
-  }
-
-  .contact-form .btn,
-  .btn-block{width:100%;justify-content:center;}
-
-  /* ===== Footer ===== */
-  footer{
-    background:var(--text);
-    color:rgba(255,255,255,.7);
-    padding:40px 0;
-    text-align:center;
-    font-size:.9rem;
-  }
-
-  footer .foot-tagline{
-    color:var(--border);
-    font-weight:600;
-    margin-bottom:8px;
-  }
-
-  /* ===== Responsive ===== */
-  @media (max-width:980px){
-    .about-grid{grid-template-columns:1fr;gap:40px;}
-    .values{grid-template-columns:repeat(2,1fr);}
-    .pricing-grid{grid-template-columns:1fr;}
-    .process-grid{grid-template-columns:repeat(2,1fr);}
-    .info-grid{grid-template-columns:repeat(2,1fr);}
-    .edu-grid{grid-template-columns:1fr;}
-    .portfolio-grid{grid-template-columns:1fr;}
-    .contact-grid{grid-template-columns:1fr;}
-  }
-
-  /* ===== Reveal Animations ===== */
-  .reveal{
-    opacity:0;
-    transform:translateY(28px);
-    transition:opacity .5s ease-out,transform .5s ease-out;
-  }
-  .reveal.is-visible{
-    opacity:1;
-    transform:translateY(0);
-  }
-  @media(prefers-reduced-motion:reduce){
-    .reveal{opacity:1;transform:none;}
-  }
-  @media(prefers-reduced-motion:no-preference){
-    @keyframes heroFadeUp{
-      from{opacity:0;transform:translateY(22px);}
-      to{opacity:1;transform:translateY(0);}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الناز بهرامی | متخصص تولید محتوا با هوش مصنوعی</title>
+  <meta name="description"
+    content="الناز بهرامی، متخصص تولید محتوا با هوش مصنوعی. محتوای AI با روح انسانی برای برندها، و آموزش کاربردی هوش مصنوعی.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF6EF;
+      --surface: #FFFFFF;
+      --text: #26211C;
+      --text-muted: #847A6C;
+      --accent: #5C0F1C;
+      --accent-dark: #400A14;
+      --border: #E3D9CA;
+      --font: 'Vazirmatn', sans-serif;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(38, 33, 28, .08);
     }
-    .hero-inner>*{animation:heroFadeUp .75s ease both;}
-    .hero-inner>:nth-child(2){animation-delay:.1s;}
-    .hero-inner>:nth-child(3){animation-delay:.2s;}
-    .hero-inner>:nth-child(4){animation-delay:.32s;}
-    .hero-inner>:nth-child(5){animation-delay:.44s;}
-  }
 
-  @media (max-width:768px){
-    .menu-toggle{display:flex;}
-    .nav-links{
-      position:absolute;
-      top:100%;
-      inset-inline-start:0;
-      inset-inline-end:0;
-      background:var(--bg);
-      flex-direction:column;
-      align-items:flex-start;
-      gap:0;
-      padding:10px 24px 24px;
-      border-bottom:1px solid rgba(38,33,28,.06);
-      transform:translateY(-12px);
-      opacity:0;
-      pointer-events:none;
-      transition:all .25s ease;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .nav-links.open{
-      transform:translateY(0);
-      opacity:1;
-      pointer-events:auto;
+
+    html {
+      scroll-behavior: smooth;
     }
-    .nav-links a{
-      padding:12px 0;
-      width:100%;
-      border-bottom:1px solid rgba(38,33,28,.05);
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+      overflow-x: hidden;
     }
-    .nav-links .btn{margin-top:10px;}
 
-    .hero{padding:40px 0 60px;}
-    .hero-inner { padding: 40px 24px; border-radius: 24px; }
-    .hero h1{font-size:2.4rem;}
-    .hero-tagline{font-size:1.15rem;}
+    img,
+    svg {
+      display: block;
+    }
 
-    h2{font-size:1.7rem;}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    .values{grid-template-columns:1fr;}
-    .process-grid{grid-template-columns:1fr;}
-    .stats{grid-template-columns:1fr 1fr;}
-    .form-row{grid-template-columns:1fr;}
-    section{padding:64px 0;}
+    ul {
+      list-style: none;
+    }
 
-    .timeline{padding-inline-start:28px;}
-    .timeline-item::before{inset-inline-start:-28px;}
-    .portfolio-placeholder{width:130px;}
-    .edu-meta{flex-direction:column;gap:8px;}
-  }
-</style>
+    section {
+      padding: 120px 0;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(92, 15, 28, .08);
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+      letter-spacing: .5px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2 {
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 246, 239, .85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(38, 33, 28, .06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      max-width: 1140px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--surface);
+      font-size: 1.05rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: .98rem;
+      transition: color .2s;
+      position: relative;
+    }
+
+    .nav-links a:not(.btn) {
+      color: var(--text);
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all .25s;
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 30px;
+      border-radius: 14px !important;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: all .25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--surface);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(92, 15, 28, .3);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(38, 33, 28, .18);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background: var(--accent);
+      color: var(--surface);
+    }
+
+    .btn-gold:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(92, 15, 28, .35);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      background: var(--bg);
+      padding: 60px 0 80px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      margin: 0 auto;
+      background: linear-gradient(150deg, var(--accent-dark) 0%, #4E0D18 55%, var(--accent) 100%);
+      border-radius: 32px;
+      padding: 80px 60px;
+      color: var(--surface);
+      box-shadow: 0 20px 40px rgba(92, 15, 28, .15);
+      overflow: hidden;
+    }
+
+    .hero-inner::before,
+    .hero-inner::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+    }
+
+    .hero-inner::before {
+      width: 380px;
+      height: 380px;
+      background: var(--accent-dark);
+      top: -120px;
+      inset-inline-end: -120px;
+      opacity: .4;
+    }
+
+    .hero-inner::after {
+      width: 300px;
+      height: 300px;
+      background: var(--surface);
+      bottom: -100px;
+      inset-inline-start: -80px;
+      opacity: .15;
+    }
+
+    .hero-inner>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .section-label {
+      background: rgba(255, 255, 255, .1);
+      color: var(--border);
+    }
+
+    .hero h1 {
+      font-size: 3.4rem;
+      margin-bottom: 10px;
+      letter-spacing: .5px;
+    }
+
+    .hero-tagline {
+      font-size: 1.4rem;
+      color: var(--border);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero p.lead {
+      color: rgba(255, 255, 255, .82);
+      font-size: 1.08rem;
+      max-width: 620px;
+      margin-bottom: 38px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero .btn-outline {
+      border-color: rgba(255, 255, 255, .35);
+      color: var(--surface);
+    }
+
+    .hero .btn-outline:hover {
+      border-color: var(--border);
+      color: var(--border);
+    }
+
+    /* ===== About ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .about-text p:first-of-type {
+      font-size: 1.1rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .quote-mark {
+      font-size: 3rem;
+      color: var(--accent);
+      font-weight: 800;
+      line-height: 1;
+      display: block;
+      margin-bottom: 6px;
+
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .stat-card .num {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .stat-card .label {
+      font-size: .9rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== Values ===== */
+    .values {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+    }
+
+    /* Blob پشت کارت‌ها برای مشخص شدن افکت شیشه‌ای */
+    .values::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      inset-inline-start: 50%;
+      transform: translate(50%, -50%);
+      /* For RTL: 50% left to right */
+      width: 400px;
+      height: 400px;
+      background: var(--accent);
+      opacity: 0.08;
+      filter: blur(80px);
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    html[dir="ltr"] .values::before {
+      transform: translate(-50%, -50%);
+    }
+
+    .value-card {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 24px;
+      padding: 34px 28px;
+      box-shadow: 0 10px 40px rgba(38, 33, 28, .04);
+      transition: transform .25s, box-shadow .25s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(38, 33, 28, .12);
+    }
+
+    .icon-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(92, 15, 28, .12), rgba(64, 10, 20, .18));
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .icon-circle svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .value-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      color: var(--text-muted);
+      font-size: .95rem;
+    }
+
+    /* ===== Timeline ===== */
+    .timeline {
+      position: relative;
+      margin-top: 50px;
+      padding-inline-start: 36px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 9px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 50px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: -36px;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 4px solid var(--accent);
+    }
+
+    .timeline-year {
+      display: inline-block;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(92, 15, 28, .08);
+      padding: 4px 16px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    .timeline-images {
+      display: flex;
+      gap: 14px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-placeholder {
+      width: 160px;
+      aspect-ratio: 4/5;
+      border-radius: 14px;
+      background: var(--border);
+      border: 1px dashed rgba(38, 33, 28, .18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: .8rem;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* ===== Brands ===== */
+    .brands {
+      background: var(--border);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+    }
+
+    .pricing-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      box-shadow: var(--shadow);
+      position: relative;
+      border: 2px solid transparent;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      inset-inline-end: 24px;
+      background: var(--accent);
+      color: var(--surface);
+      font-size: .72rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+
+    .pricing-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .pricing-card p {
+      color: var(--text-muted);
+      font-size: .92rem;
+      margin-bottom: 22px;
+    }
+
+    .pricing-price {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--accent);
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 54px;
+    }
+
+    .process-step {
+      text-align: center;
+    }
+
+    .process-num {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin: 0 auto 16px;
+    }
+
+    .process-step h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .process-step p {
+      color: var(--text-muted);
+      font-size: .9rem;
+    }
+
+    .cta-box {
+      margin-top: 60px;
+      background: linear-gradient(150deg, var(--accent-dark), var(--accent));
+      border-radius: var(--radius);
+      padding: 44px 36px;
+      text-align: center;
+      color: var(--surface);
+    }
+
+    .cta-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, .82);
+      margin-bottom: 24px;
+    }
+
+    .cta-box .btn {
+      background: var(--surface);
+      color: var(--accent);
+    }
+
+    .cta-box .btn:hover {
+      background: var(--border);
+      transform: translateY(-2px);
+    }
+
+    /* ===== Education ===== */
+    .badge-pill {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--surface);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+
+    .edu-feature {
+      background: var(--surface);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      box-shadow: var(--shadow);
+      margin-top: 50px;
+    }
+
+    .edu-feature h3 {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .edu-feature h4 {
+      margin-bottom: 14px;
+    }
+
+    .edu-meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+      color: var(--text-muted);
+      font-size: .95rem;
+    }
+
+    .edu-meta strong {
+      color: var(--accent);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .info-box {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .info-box .info-label {
+      font-size: .82rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .info-box .info-value {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .check-list {
+      margin-bottom: 34px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .edu-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 34px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .edu-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+
+    .edu-card p {
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .edu-card .edu-price {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+
+    .lead-magnet {
+      background: var(--border);
+      border-radius: var(--radius);
+      padding: 34px 28px;
+    }
+
+    .lead-magnet h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .lead-magnet p {
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    /* ===== Portfolio ===== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .portfolio-video {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      aspect-ratio: 9/16;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--text);
+    }
+
+    .portfolio-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    .portfolio-content p {
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .tag-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--surface);
+      border: 1px solid rgba(38, 33, 28, .1);
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ===== Contact ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 50px;
+      margin-top: 40px;
+    }
+
+    .contact-info {
+      background: linear-gradient(150deg, var(--accent-dark), var(--accent));
+      color: var(--surface);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .contact-info>p {
+      color: rgba(255, 255, 255, .78);
+      margin-bottom: 30px;
+      font-size: .95rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      transition: opacity .2s;
+    }
+
+    a.contact-item:hover {
+      opacity: .8;
+    }
+
+    .contact-item .icon-circle {
+      background: rgba(255, 255, 255, .12);
+      color: var(--border);
+      flex-shrink: 0;
+      transition: background .2s;
+    }
+
+    a.contact-item:hover .icon-circle {
+      background: rgba(255, 255, 255, .22);
+    }
+
+    .contact-item .ci-text .ci-label {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .6);
+      margin-bottom: 2px;
+    }
+
+    .contact-item .ci-text .ci-value {
+      font-weight: 600;
+      font-size: .98rem;
+    }
+
+    .contact-form {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .88rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(38, 33, 28, .12);
+      background: var(--bg);
+      font-family: var(--font);
+      font-size: .95rem;
+      color: var(--text);
+      resize: vertical;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(92, 15, 28, .12);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      font-size: .95rem;
+      cursor: pointer;
+    }
+
+    .radio-group input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+    }
+
+    .contact-form .btn,
+    .btn-block {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--text);
+      color: rgba(255, 255, 255, .7);
+      padding: 40px 0;
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    footer .foot-tagline {
+      color: var(--border);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width:980px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .values {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Reveal Animations ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .5s ease-out, transform .5s ease-out;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media(prefers-reduced-motion:no-preference) {
+      @keyframes heroFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-inner>* {
+        animation: heroFadeUp .75s ease both;
+      }
+
+      .hero-inner>:nth-child(2) {
+        animation-delay: .1s;
+      }
+
+      .hero-inner>:nth-child(3) {
+        animation-delay: .2s;
+      }
+
+      .hero-inner>:nth-child(4) {
+        animation-delay: .32s;
+      }
+
+      .hero-inner>:nth-child(5) {
+        animation-delay: .44s;
+      }
+    }
+
+    @media (max-width:768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        inset-inline-start: 0;
+        inset-inline-end: 0;
+        background: var(--bg);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 10px 24px 24px;
+        border-bottom: 1px solid rgba(38, 33, 28, .06);
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all .25s ease;
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(38, 33, 28, .05);
+      }
+
+      .nav-links .btn {
+        margin-top: 10px;
+      }
+
+      .hero {
+        padding: 40px 0 60px;
+      }
+
+      .hero-inner {
+        padding: 40px 24px;
+        border-radius: 24px;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero-tagline {
+        font-size: 1.15rem;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .timeline {
+        padding-inline-start: 28px;
+      }
+
+      .timeline-item::before {
+        inset-inline-start: -28px;
+      }
+
+      .portfolio-placeholder {
+        width: 130px;
+      }
+
+      .edu-meta {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <nav class="nav">
-    <a href="#top" class="logo">
-      <span class="logo-mark">ا.ب</span>
-      <span>الناز بهرامی</span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">معرفی</a></li>
-      <li><a href="#brands">برندها</a></li>
-      <li><a href="#education">آموزش</a></li>
-      <li><a href="#portfolio">نمونه‌کار</a></li>
-      <li><a href="#contact">تماس</a></li>
-      <li><a href="#contact" class="btn btn-gold">همکاری با من</a></li>
-    </ul>
-    <button class="menu-toggle" id="menuToggle" aria-label="باز کردن منو">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
+  <header>
+    <nav class="nav">
+      <a href="#top" class="logo">
+        <span class="logo-mark">ا.ب</span>
+        <span>الناز بهرامی</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">معرفی</a></li>
+        <li><a href="#brands">برندها</a></li>
+        <li><a href="#education">آموزش</a></li>
+        <li><a href="#portfolio">نمونه‌کار</a></li>
+        <li><a href="#contact">تماس</a></li>
+        <li><a href="#contact" class="btn btn-gold">همکاری با من</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="باز کردن منو">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-<main id="top">
+  <main id="top">
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <span class="section-label">متخصص تولید محتوا با هوش مصنوعی</span>
-        <h1>محتوای هوش مصنوعی، با ذوق استراتژیک</h1>
-        <p class="hero-tagline">برای برندهایی که می‌خوان با AI جلو بیفتن، نه شبیه بقیه بشن.</p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <span class="section-label">متخصص تولید محتوا با هوش مصنوعی</span>
+          <h1>محتوای هوش مصنوعی، با ذوق استراتژیک</h1>
+          <p class="hero-tagline">برای برندهایی که می‌خوان با AI جلو بیفتن، نه شبیه بقیه بشن.</p>
+          <p class="lead">
+            ۷ سال تجربه در محتوا و برندینگ رو با ابزارهای روز AI ترکیب می‌کنم — محتوایی که هم سریع و مدرنه، هم با فکر و
+            خاص.
+          </p>
+          <div class="hero-buttons">
+            <a href="#brands" class="btn btn-gold">خدمات من رو ببین</a>
+            <a href="#contact" class="btn btn-outline">بیا همکاری کنیم</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <span class="section-label">معرفی</span>
+        <div class="about-grid">
+          <div class="about-text">
+            <h2>محتوای هوش مصنوعی با روح انسانی</h2>
+            <p>
+              اکثر محتوایی که با هوش مصنوعی ساخته می‌شه، یه شکل و یه لحن دارن.
+              من یه چیز دیگه اضافه می‌کنم — ترکیبی از فکر و استراتژی با حس و روح انسانی؛ چیزی که AI به‌تنهایی نمی‌تونه
+              بسازه.
+              برای برندی که با من کار می‌کنه، یعنی محتوا دیگه شبیه بقیه نیست.
+            </p>
+            <span class="quote-mark">«</span>
+            <p>
+              از سال ۲۰۱۷ با عکاسی غذا شروع کردم — یه مدتم ادمین برندها بودم —
+              و سال‌ها تجربه‌ی ساختن از صفر، بدون کلاس و بدون استاد. هر مرحله یه چیزی بهم اضافه کرد:
+              چشم بصری، شناخت مخاطب، و توانایی ساختن مستقل.
+            </p>
+            <p>
+              الان با هوش مصنوعی کار می‌کنم؛ ابزاری سریع و دقیق، اما بدون روح.
+              کاری که من می‌کنم اینه که اون روح رو به محتوای AI برمی‌گردونم؛
+              محتوایی که هم پشتش فکره، هم زنده‌ست.
+            </p>
+          </div>
+          <div class="stats">
+            <div class="stat-card">
+              <div class="num">+۷</div>
+              <div class="label">سال تجربه در تولید محتوا و برندینگ</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">۴</div>
+              <div class="label">دوره‌ی آموزشی حضوری AI برگزار شده</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">۲</div>
+              <div class="label">کشور همکاری بین‌المللی (کانادا و انگلیس)</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">اهواز</div>
+              <div class="label">مقر فعالیت و برگزاری دوره‌های حضوری</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Values -->
+        <div class="values">
+          <div class="value-card">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M14.5 9.5 13 14l-4.5 1.5L10 11l4.5-1.5z" />
+              </svg>
+            </div>
+            <h3>کنجکاوی فعال</h3>
+            <p>دنیای AI هر هفته تغییر می‌کنه، من جلوتر از موج می‌مونم — یعنی برندت همیشه با تازه‌ترین ابزارها جلو می‌ره،
+              نه عقب می‌مونه.</p>
+          </div>
+          <div class="value-card">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </div>
+            <h3>صداقت کاری</h3>
+            <p>اگه پروژه‌ای به درد نخوره، می‌گم. اگه AI جوابگو نباشه، می‌گم — یعنی پولت رو روی چیزی که نتیجه نمی‌ده هدر
+              نمی‌دی.</p>
+          </div>
+          <div class="value-card">
+            <div class="icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2c0 4-3 7-7 7 4 0 7 3 7 7 0-4 3-7 7-7-4 0-7-3-7-7z" />
+              </svg>
+            </div>
+            <h3>ساخت با روح</h3>
+            <p>هیچ کاری بی‌فکر ساخته نمی‌شه. هرچی می‌سازم هم زیباست، هم زنده‌ست — یعنی محتوای برندت بین صدها پست دیگه گم
+              نمی‌شه.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="journey">
+      <div class="container">
+        <h2>مسیرم از دل تجربه‌ست</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year">۲۰۱۷</span>
+            <h3>شروع با گوشی</h3>
+            <p>اولین قدم. بدون کلاس، بدون استاد — فقط چشم و ذوق. از همینجا یاد گرفتم چطور ببینم.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">۲۰۱۹</span>
+            <h3>MFC میزبان</h3>
+            <p>عکاسی محصول خلاقانه برای یکی از برندهای فست‌فود اهواز. اینجا فهمیدم استایل یعنی چی.</p>
+            <div class="timeline-images">
+              <div class="portfolio-placeholder">تصویر نمونه</div>
+              <div class="portfolio-placeholder">تصویر نمونه</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">۲۰۲۲</span>
+            <h3>Papa Factory</h3>
+            <p>UGC و عکاسی محصول برای یه برند غذایی خلاق. اینجا با مفهوم روایت تصویری آشنا شدم.</p>
+            <div class="timeline-images">
+              <div class="portfolio-placeholder">تصویر نمونه</div>
+              <div class="portfolio-placeholder">تصویر نمونه</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">۲۰۲۶ — الان</span>
+            <h3>محتوای AI با روح انسانی</h3>
+            <p>۷ سال تجربه + ابزارهای AI = محتوایی که AI به‌تنهایی نمی‌تونه بسازه. الان اینجام که همین رو برای برند تو
+              هم بسازم.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands -->
+    <section id="brands" class="brands">
+      <div class="container">
+        <span class="section-label">برندها</span>
+        <h2>محتوای حرفه‌ای با هوش مصنوعی، برای برندی که نمی‌خواد شبیه بقیه باشه</h2>
+        <p class="lead">من محتوا می‌سازم — سریع، با فکر، و با روح. از فکر تا تولید، با هم پیش می‌ریم.</p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card featured">
+            <span class="pricing-badge">مقرون‌به‌صرفه</span>
+            <h4>عکس و ویدیو با AI</h4>
+            <p>با قیمتی کمتر از عکاسی حرفه‌ای، کیفیتی بهتر از آیفون می‌گیری — بدون دوربین، استودیو، یا فتوشوت.</p>
+            <div class="pricing-price">بسته به حجم — پیام بده</div>
+          </div>
+          <div class="pricing-card">
+            <h4>پکیج پست</h4>
+            <p>تولید پست اختصاصی برند — بسته به تعداد و نوع محتوا</p>
+            <div class="pricing-price">برای قیمت پیام بده</div>
+          </div>
+          <div class="pricing-card">
+            <h4>پکیج کامل</h4>
+            <p>۹ پست (اسلایدی یا ریل) + استوری + آپلود + ادمین حضوری</p>
+            <div class="pricing-price">از ۳۰ میلیون تومان</div>
+          </div>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="process-num">۱</div>
+            <h4>آشنایی</h4>
+            <p>برند، مخاطب، و هدفت رو بهم می‌گی</p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">۲</div>
+            <h4>برنامه‌ریزی</h4>
+            <p>تقویم محتوایی و ایده‌ها آماده می‌شن</p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">۳</div>
+            <h4>تولید</h4>
+            <p>محتوا ساخته، چک، و تحویل داده می‌شه</p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">۴</div>
+            <h4>بهبود</h4>
+            <p>هر ماه بهتر از قبل می‌شیم</p>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <h3>آماده‌ای شروع کنیم؟</h3>
+          <p>بهم بگو برندت چیه — از فکر تا تولید، با هم پیش می‌ریم.</p>
+          <a href="https://wa.me/989304009383" target="_blank" rel="noopener" class="btn">واتساپ بزن</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <div class="container">
+        <span class="section-label">آموزش</span>
+        <h2>یاد بگیر با AI کار کنی — نه فقط ازش استفاده کنی</h2>
+        <p class="lead">آموزش کاربردی هوش مصنوعی، از کسی که خودش هر روز باهاش کار می‌کنه.</p>
+        <p>اگه وسط هزار ابزار و آموزش پراکنده گم شدی، اینجا یه مسیر روشن و عملی پیدا می‌کنی — نه تئوری خالی.</p>
+
+        <div class="edu-feature">
+          <span class="badge-pill">ظرفیت محدود</span>
+          <h3>کلاس نیمه خصوصی AI</h3>
+          <div class="edu-meta">
+            <span>تاریخ: نیمه دوم تیرماه — اهواز</span>
+            <span>شهریه: <strong>۱۲ میلیون تومان</strong></span>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-box">
+              <div class="info-label">مدت</div>
+              <div class="info-value">یک ماه</div>
+            </div>
+            <div class="info-box">
+              <div class="info-label">جلسات</div>
+              <div class="info-value">۸ جلسه</div>
+            </div>
+            <div class="info-box">
+              <div class="info-label">برگزاری</div>
+              <div class="info-value">هفته‌ای دو بار</div>
+            </div>
+            <div class="info-box">
+              <div class="info-label">ظرفیت</div>
+              <div class="info-value">محدود</div>
+            </div>
+          </div>
+
+          <h4>بعد از کلاس می‌تونی:</h4>
+          <ul class="check-list">
+            <li><span>✅</span><span>عکس محصول حرفه‌ای با AI بسازی — بدون دوربین و فتوشوت</span></li>
+            <li><span>✅</span><span>ویدیوی برند تولید کنی</span></li>
+            <li><span>✅</span><span>استراتژی محتوا بنویسی</span></li>
+            <li><span>✅</span><span>پرامپت‌نویسی خلاقانه بلد بشی</span></li>
+            <li><span>✅</span><span>تمام فایل‌ها و پرامپت‌های کلاس مال خودته — برای همیشه</span></li>
+            <p>یعنی از یه ادمین/فریلنسر ساده، به کسی تبدیل می‌شی که AI رو واقعاً بلده — و این مهارت رو می‌تونه به
+              مشتری‌هاش هم بفروشه.</p>
+          </ul>
+
+          <form id="classForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="classname">اسم</label>
+                <input type="text" id="classname" name="classname" placeholder="نام و نام خانوادگی" required>
+              </div>
+              <div class="form-group">
+                <label for="classrole">حیطه فعالیت</label>
+                <select id="classrole" name="classrole" required>
+                  <option value="" disabled selected>انتخاب کن</option>
+                  <option value="ادمین پیج">ادمین پیج</option>
+                  <option value="فریلنسر">فریلنسر</option>
+                  <option value="صاحب کسب‌وکار">صاحب کسب‌وکار</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="classbiz">نوع کسب‌وکار</label>
+                <select id="classbiz" name="classbiz" required>
+                  <option value="" disabled selected>انتخاب کن</option>
+                  <option value="رستوران/کافه/غذا">رستوران/کافه/غذا</option>
+                  <option value="کلینیک زیبایی/سلامت">کلینیک زیبایی/سلامت</option>
+                  <option value="فروشگاه/محصول">فروشگاه/محصول</option>
+                  <option value="خدمات (آموزش، مشاوره و...)">خدمات (آموزش، مشاوره و...)</option>
+                  <option value="سایر">سایر</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="classexp">چند وقته کار می‌کنی؟</label>
+                <select id="classexp" name="classexp">
+                  <option value="" disabled selected>انتخاب کن</option>
+                  <option value="کمتر از ۱ سال">کمتر از ۱ سال</option>
+                  <option value="۱ تا ۳ سال">۱ تا ۳ سال</option>
+                  <option value="۳ تا ۵ سال">۳ تا ۵ سال</option>
+                  <option value="بیشتر از ۵ سال">بیشتر از ۵ سال</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>تا حالا با AI کار کردی؟</label>
+              <div class="radio-group">
+                <label><input type="radio" name="classai" value="بله" checked> بله</label>
+                <label><input type="radio" name="classai" value="خیر"> خیر</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="classgoal">هدفت از کلاس چیه؟</label>
+              <textarea id="classgoal" name="classgoal" placeholder="کمی درباره‌ی هدفت بنویس..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold btn-block">ثبت‌نام — واتساپ</button>
+          </form>
+        </div>
+
+        <div class="edu-grid">
+          <div class="edu-card">
+            <h4>جلسه راهنمایی شخصی</h4>
+            <p>اگه مشکل قیمت‌گذاری، جذب مشتری، یا ساختن پورتفولیو داری — یا می‌خوای بدونی مسیر کار با AI چیه و چطور ازش
+              درآمد بسازی — این جلسه برات طراحی شده.</p>
+            <p><strong>یه جلسه، یه مشکل مشخص، یه راه‌حل واقعی.</strong></p>
+            <div class="edu-price">۱ ساعت — ۱،۵۰۰،۰۰۰ تومان</div>
+            <a href="https://wa.me/989304009383" target="_blank" rel="noopener" class="btn btn-gold btn-block">رزرو
+              جلسه</a>
+          </div>
+
+          <div class="lead-magnet">
+            <h4>۵۰ پرامپت ویژه کسب‌وکارها — رایگان</h4>
+            <p>دیگه لازم نیست خودت پرامپت بسازی و وقت بگذاری</p>
+            <p>شماره و حیطه کاریت رو بذار، پرامپت‌ها رو بگیر.</p>
+            <form id="promptForm">
+              <div class="form-group">
+                <label for="promptphone">شماره تماس</label>
+                <input type="tel" id="promptphone" name="promptphone" placeholder="09xxxxxxxxx" required>
+              </div>
+              <div class="form-group">
+                <label for="promptcategory">حیطه کاری</label>
+                <select id="promptcategory" name="promptcategory" required>
+                  <option value="" disabled selected>انتخاب کن</option>
+                  <option value="رستوران/کافه/غذا">رستوران/کافه/غذا</option>
+                  <option value="کلینیک زیبایی/سلامت">کلینیک زیبایی/سلامت</option>
+                  <option value="فروشگاه/محصول">فروشگاه/محصول</option>
+                  <option value="ادمین/فریلنسر">ادمین/فریلنسر</option>
+                  <option value="خدمات">خدمات</option>
+                  <option value="سایر">سایر</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="promptemail">ایمیل (اختیاری)</label>
+                <input type="email" id="promptemail" name="promptemail" placeholder="example@email.com">
+              </div>
+              <button type="submit" class="btn btn-gold btn-block">دریافت رایگان</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <div class="container">
+        <span class="section-label">نمونه‌کار</span>
+        <h2>یه نمونه از کارهام</h2>
+        <p style="opacity:0.7; font-size:0.9em;">نمونه‌ی مفهومی</p>
         <p class="lead">
-          ۷ سال تجربه در محتوا و برندینگ رو با ابزارهای روز AI ترکیب می‌کنم — محتوایی که هم سریع و مدرنه، هم با فکر و خاص.
+          یکی از پروژه‌های اخیر؛ محتوای ویدیویی برای یک برند برگر، با ترکیب عکاسی، ادیت
+          و کمک ابزارهای هوش مصنوعی. هدفش محتوایی بود که هم زیبا باشه، هم مخاطب رو نگه داره.
         </p>
-        <div class="hero-buttons">
-          <a href="#brands" class="btn btn-gold">خدمات من رو ببین</a>
-          <a href="#contact" class="btn btn-outline">بیا همکاری کنیم</a>
+        <style>
+          /* Temporary Masonry Styles */
+          .masonry-grid {
+            columns: 3 300px;
+            column-gap: 24px;
+            margin-top: 40px;
+          }
+
+          .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(38, 33, 28, .06);
+            cursor: pointer;
+            background: var(--border);
+          }
+
+          .masonry-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(92, 15, 28, 0.85);
+            /* Bordeaux transparent */
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            text-align: center;
+          }
+
+          .masonry-item:hover .masonry-overlay {
+            opacity: 1;
+          }
+
+          .masonry-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #fff;
+            transform: translateY(15px);
+            transition: transform 0.35s ease;
+          }
+
+          .masonry-item:hover .masonry-overlay h3 {
+            transform: translateY(0);
+          }
+
+          .masonry-overlay p {
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.85);
+            transform: translateY(15px);
+            transition: transform 0.35s ease 0.05s;
+          }
+
+          .masonry-item:hover .masonry-overlay p {
+            transform: translateY(0);
+          }
+
+          .masonry-overlay .btn-masonry {
+            background: #fff;
+            color: var(--accent);
+            padding: 10px 26px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transform: translateY(15px);
+            transition: transform 0.35s ease 0.1s, background 0.2s;
+          }
+
+          .masonry-item:hover .masonry-overlay .btn-masonry {
+            transform: translateY(0);
+          }
+
+          .masonry-overlay .btn-masonry:hover {
+            background: var(--bg);
+          }
+        </style>
+
+        <div class="masonry-grid">
+          <!-- پروژه برگر -->
+          <div class="masonry-item">
+            <video src="برگرmp4.mp4" muted loop playsinline
+              style="width:100%; display:block; object-fit:cover;"></video>
+            <div class="masonry-overlay">
+              <h3>عنوان پروژه برگر</h3>
+              <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
+              <span class="btn-masonry">مشاهده پروژه</span>
+            </div>
+          </div>
+
+          <!-- پروژه ۲ -->
+          <div class="masonry-item">
+            <video src="project2.mp4" muted loop playsinline
+              style="width:100%; display:block; object-fit:cover; aspect-ratio: 4/5; background: #e2d9cd;"></video>
+            <div class="masonry-overlay">
+              <h3>عنوان پروژه دوم</h3>
+              <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
+              <span class="btn-masonry">مشاهده پروژه</span>
+            </div>
+          </div>
+
+          <!-- پروژه ۳ -->
+          <div class="masonry-item">
+            <video src="project3.mp4" muted loop playsinline
+              style="width:100%; display:block; object-fit:cover; aspect-ratio: 1/1.2; background: rgba(92,15,28,0.1);"></video>
+            <div class="masonry-overlay">
+              <h3>عنوان پروژه سوم</h3>
+              <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
+              <span class="btn-masonry">مشاهده پروژه</span>
+            </div>
+          </div>
+
+          <!-- پروژه ۴ -->
+          <div class="masonry-item">
+            <video src="project4.mp4" muted loop playsinline
+              style="width:100%; display:block; object-fit:cover; aspect-ratio: 3/4; background: #eeddd2;"></video>
+            <div class="masonry-overlay">
+              <h3>عنوان پروژه چهارم</h3>
+              <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
+              <span class="btn-masonry">مشاهده پروژه</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <span class="section-label">معرفی</span>
-      <div class="about-grid">
-        <div class="about-text">
-          <h2>محتوای هوش مصنوعی با روح انسانی</h2>
-          <p>
-            اکثر محتوایی که با هوش مصنوعی ساخته می‌شه، یه شکل و یه لحن دارن.
-            من یه چیز دیگه اضافه می‌کنم — ترکیبی از فکر و استراتژی با حس و روح انسانی؛ چیزی که AI به‌تنهایی نمی‌تونه بسازه.
-            برای برندی که با من کار می‌کنه، یعنی محتوا دیگه شبیه بقیه نیست.
-          </p>
-          <span class="quote-mark">«</span>
-          <p>
-            از سال ۲۰۱۷ با عکاسی غذا شروع کردم — یه مدتم ادمین برندها بودم —
-            و سال‌ها تجربه‌ی ساختن از صفر، بدون کلاس و بدون استاد. هر مرحله یه چیزی بهم اضافه کرد:
-            چشم بصری، شناخت مخاطب، و توانایی ساختن مستقل.
-          </p>
-          <p>
-            الان با هوش مصنوعی کار می‌کنم؛ ابزاری سریع و دقیق، اما بدون روح.
-            کاری که من می‌کنم اینه که اون روح رو به محتوای AI برمی‌گردونم؛
-            محتوایی که هم پشتش فکره، هم زنده‌ست.
-          </p>
-        </div>
-        <div class="stats">
-          <div class="stat-card">
-            <div class="num">+۷</div>
-            <div class="label">سال تجربه در تولید محتوا و برندینگ</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">۴</div>
-            <div class="label">دوره‌ی آموزشی حضوری AI برگزار شده</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">۲</div>
-            <div class="label">کشور همکاری بین‌المللی (کانادا و انگلیس)</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">اهواز</div>
-            <div class="label">مقر فعالیت و برگزاری دوره‌های حضوری</div>
-          </div>
-        </div>
-      </div>
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <span class="section-label">تماس</span>
+        <h2>بیا گفتگو رو شروع کنیم</h2>
+        <p class="lead">
+          برای همکاری در پروژه‌های محتوایی، ثبت‌نام در دوره‌های آموزشی، یا فقط یه گفتگوی دوستانه
+          درباره‌ی هوش مصنوعی و محتوا، خوشحال می‌شم ازت بشنوم.
+        </p>
 
-      <!-- Values -->
-      <div class="values">
-        <div class="value-card">
-          <div class="icon-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5 13 14l-4.5 1.5L10 11l4.5-1.5z"/></svg>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>راه‌های ارتباطی</h3>
+            <p>پیامت رو بفرست یا از راه‌های زیر در ارتباط باش؛ معمولاً ظرف ۲۴ ساعت پاسخ می‌دم.</p>
+
+            <a class="contact-item" href="mailto:elibahrami1995@gmail.com">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+              </div>
+              <div class="ci-text">
+                <div class="ci-label">ایمیل</div>
+                <div class="ci-value">elibahrami1995@gmail.com</div>
+              </div>
+            </a>
+
+            <a class="contact-item" href="https://instagram.com/elna1zbahramii" target="_blank" rel="noopener">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" />
+                </svg>
+              </div>
+              <div class="ci-text">
+                <div class="ci-label">اینستاگرام</div>
+                <div class="ci-value">elna1zbahramii</div>
+              </div>
+            </a>
+
+            <a class="contact-item" href="https://wa.me/989304009383" target="_blank" rel="noopener">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4L21 21l-4.3-1.1a8.5 8.5 0 1 1 4.3-8.4z" />
+                </svg>
+              </div>
+              <div class="ci-text">
+                <div class="ci-label">واتساپ</div>
+                <div class="ci-value">۰۹۳۰۴۰۰۹۳۸۳</div>
+              </div>
+            </a>
+
+            <div class="contact-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </div>
+              <div class="ci-text">
+                <div class="ci-label">موقعیت</div>
+                <div class="ci-value">اهواز، ایران</div>
+              </div>
+            </div>
           </div>
-          <h3>کنجکاوی فعال</h3>
-          <p>دنیای AI هر هفته تغییر می‌کنه، من جلوتر از موج می‌مونم — یعنی برندت همیشه با تازه‌ترین ابزارها جلو می‌ره، نه عقب می‌مونه.</p>
-        </div>
-        <div class="value-card">
-          <div class="icon-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <h3>صداقت کاری</h3>
-          <p>اگه پروژه‌ای به درد نخوره، می‌گم. اگه AI جوابگو نباشه، می‌گم — یعنی پولت رو روی چیزی که نتیجه نمی‌ده هدر نمی‌دی.</p>
-        </div>
-        <div class="value-card">
-          <div class="icon-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 4-3 7-7 7 4 0 7 3 7 7 0-4 3-7 7-7-4 0-7-3-7-7z"/></svg>
-          </div>
-          <h3>ساخت با روح</h3>
-          <p>هیچ کاری بی‌فکر ساخته نمی‌شه. هرچی می‌سازم هم زیباست، هم زنده‌ست — یعنی محتوای برندت بین صدها پست دیگه گم نمی‌شه.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Timeline -->
-  <section id="journey">
-    <div class="container">
-      <h2>مسیرم از دل تجربه‌ست</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-year">۲۰۱۷</span>
-          <h3>شروع با گوشی</h3>
-          <p>اولین قدم. بدون کلاس، بدون استاد — فقط چشم و ذوق. از همینجا یاد گرفتم چطور ببینم.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">۲۰۱۹</span>
-          <h3>MFC میزبان</h3>
-          <p>عکاسی محصول خلاقانه برای یکی از برندهای فست‌فود اهواز. اینجا فهمیدم استایل یعنی چی.</p>
-          <div class="timeline-images">
-            <div class="portfolio-placeholder">تصویر نمونه</div>
-            <div class="portfolio-placeholder">تصویر نمونه</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">۲۰۲۲</span>
-          <h3>Papa Factory</h3>
-          <p>UGC و عکاسی محصول برای یه برند غذایی خلاق. اینجا با مفهوم روایت تصویری آشنا شدم.</p>
-          <div class="timeline-images">
-            <div class="portfolio-placeholder">تصویر نمونه</div>
-            <div class="portfolio-placeholder">تصویر نمونه</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">۲۰۲۶ — الان</span>
-          <h3>محتوای AI با روح انسانی</h3>
-          <p>۷ سال تجربه + ابزارهای AI = محتوایی که AI به‌تنهایی نمی‌تونه بسازه. الان اینجام که همین رو برای برند تو هم بسازم.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Brands -->
-  <section id="brands" class="brands">
-    <div class="container">
-      <span class="section-label">برندها</span>
-      <h2>محتوای حرفه‌ای با هوش مصنوعی، برای برندی که نمی‌خواد شبیه بقیه باشه</h2>
-      <p class="lead">من محتوا می‌سازم — سریع، با فکر، و با روح. از فکر تا تولید، با هم پیش می‌ریم.</p>
-
-      <div class="pricing-grid">
-        <div class="pricing-card featured">
-          <span class="pricing-badge">مقرون‌به‌صرفه</span>
-          <h4>عکس و ویدیو با AI</h4>
-          <p>با قیمتی کمتر از عکاسی حرفه‌ای، کیفیتی بهتر از آیفون می‌گیری — بدون دوربین، استودیو، یا فتوشوت.</p>
-          <div class="pricing-price">بسته به حجم — پیام بده</div>
-        </div>
-        <div class="pricing-card">
-          <h4>پکیج پست</h4>
-          <p>تولید پست اختصاصی برند — بسته به تعداد و نوع محتوا</p>
-          <div class="pricing-price">برای قیمت پیام بده</div>
-        </div>
-        <div class="pricing-card">
-          <h4>پکیج کامل</h4>
-          <p>۹ پست (اسلایدی یا ریل) + استوری + آپلود + ادمین حضوری</p>
-          <div class="pricing-price">از ۳۰ میلیون تومان</div>
-        </div>
-      </div>
-
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="process-num">۱</div>
-          <h4>آشنایی</h4>
-          <p>برند، مخاطب، و هدفت رو بهم می‌گی</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">۲</div>
-          <h4>برنامه‌ریزی</h4>
-          <p>تقویم محتوایی و ایده‌ها آماده می‌شن</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">۳</div>
-          <h4>تولید</h4>
-          <p>محتوا ساخته، چک، و تحویل داده می‌شه</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">۴</div>
-          <h4>بهبود</h4>
-          <p>هر ماه بهتر از قبل می‌شیم</p>
-        </div>
-      </div>
-
-      <div class="cta-box">
-        <h3>آماده‌ای شروع کنیم؟</h3>
-        <p>بهم بگو برندت چیه — از فکر تا تولید، با هم پیش می‌ریم.</p>
-        <a href="https://wa.me/989304009383" target="_blank" rel="noopener" class="btn">واتساپ بزن</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education">
-    <div class="container">
-      <span class="section-label">آموزش</span>
-      <h2>یاد بگیر با AI کار کنی — نه فقط ازش استفاده کنی</h2>
-      <p class="lead">آموزش کاربردی هوش مصنوعی، از کسی که خودش هر روز باهاش کار می‌کنه.</p>
-      <p>اگه وسط هزار ابزار و آموزش پراکنده گم شدی، اینجا یه مسیر روشن و عملی پیدا می‌کنی — نه تئوری خالی.</p>
-
-      <div class="edu-feature">
-        <span class="badge-pill">ظرفیت محدود</span>
-        <h3>کلاس نیمه خصوصی AI</h3>
-        <div class="edu-meta">
-          <span>تاریخ: نیمه دوم تیرماه — اهواز</span>
-          <span>شهریه: <strong>۱۲ میلیون تومان</strong></span>
-        </div>
-
-        <div class="info-grid">
-          <div class="info-box">
-            <div class="info-label">مدت</div>
-            <div class="info-value">یک ماه</div>
-          </div>
-          <div class="info-box">
-            <div class="info-label">جلسات</div>
-            <div class="info-value">۸ جلسه</div>
-          </div>
-          <div class="info-box">
-            <div class="info-label">برگزاری</div>
-            <div class="info-value">هفته‌ای دو بار</div>
-          </div>
-          <div class="info-box">
-            <div class="info-label">ظرفیت</div>
-            <div class="info-value">محدود</div>
-          </div>
-        </div>
-
-        <h4>بعد از کلاس می‌تونی:</h4>
-        <ul class="check-list">
-          <li><span>✅</span><span>عکس محصول حرفه‌ای با AI بسازی — بدون دوربین و فتوشوت</span></li>
-          <li><span>✅</span><span>ویدیوی برند تولید کنی</span></li>
-          <li><span>✅</span><span>استراتژی محتوا بنویسی</span></li>
-          <li><span>✅</span><span>پرامپت‌نویسی خلاقانه بلد بشی</span></li>
-          <li><span>✅</span><span>تمام فایل‌ها و پرامپت‌های کلاس مال خودته — برای همیشه</span></li>
-          <p>یعنی از یه ادمین/فریلنسر ساده، به کسی تبدیل می‌شی که AI رو واقعاً بلده — و این مهارت رو می‌تونه به مشتری‌هاش هم بفروشه.</p>
-        </ul>
-
-        <form id="classForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="classname">اسم</label>
-              <input type="text" id="classname" name="classname" placeholder="نام و نام خانوادگی" required>
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">نام و نام خانوادگی</label>
+                <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required>
+              </div>
+              <div class="form-group">
+                <label for="email">ایمیل</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+              </div>
             </div>
             <div class="form-group">
-              <label for="classrole">حیطه فعالیت</label>
-              <select id="classrole" name="classrole" required>
-                <option value="" disabled selected>انتخاب کن</option>
-                <option value="ادمین پیج">ادمین پیج</option>
-                <option value="فریلنسر">فریلنسر</option>
-                <option value="صاحب کسب‌وکار">صاحب کسب‌وکار</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="classbiz">نوع کسب‌وکار</label>
-              <select id="classbiz" name="classbiz" required>
-                <option value="" disabled selected>انتخاب کن</option>
-                <option value="رستوران/کافه/غذا">رستوران/کافه/غذا</option>
-                <option value="کلینیک زیبایی/سلامت">کلینیک زیبایی/سلامت</option>
-                <option value="فروشگاه/محصول">فروشگاه/محصول</option>
-                <option value="خدمات (آموزش، مشاوره و...)">خدمات (آموزش، مشاوره و...)</option>
-                <option value="سایر">سایر</option>
-              </select>
+              <label for="subject">موضوع</label>
+              <input type="text" id="subject" name="subject" placeholder="مثلاً: همکاری در پروژه محتوا">
             </div>
             <div class="form-group">
-              <label for="classexp">چند وقته کار می‌کنی؟</label>
-              <select id="classexp" name="classexp">
-                <option value="" disabled selected>انتخاب کن</option>
-                <option value="کمتر از ۱ سال">کمتر از ۱ سال</option>
-                <option value="۱ تا ۳ سال">۱ تا ۳ سال</option>
-                <option value="۳ تا ۵ سال">۳ تا ۵ سال</option>
-                <option value="بیشتر از ۵ سال">بیشتر از ۵ سال</option>
-              </select>
+              <label for="message">پیام شما</label>
+              <textarea id="message" name="message" placeholder="کمی درباره‌ی پروژه یا درخواستت بنویس..."
+                required></textarea>
             </div>
-          </div>
-          <div class="form-group">
-            <label>تا حالا با AI کار کردی؟</label>
-            <div class="radio-group">
-              <label><input type="radio" name="classai" value="بله" checked> بله</label>
-              <label><input type="radio" name="classai" value="خیر"> خیر</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="classgoal">هدفت از کلاس چیه؟</label>
-            <textarea id="classgoal" name="classgoal" placeholder="کمی درباره‌ی هدفت بنویس..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold btn-block">ثبت‌نام — واتساپ</button>
-        </form>
-      </div>
-
-      <div class="edu-grid">
-        <div class="edu-card">
-          <h4>جلسه راهنمایی شخصی</h4>
-          <p>اگه مشکل قیمت‌گذاری، جذب مشتری، یا ساختن پورتفولیو داری — یا می‌خوای بدونی مسیر کار با AI چیه و چطور ازش درآمد بسازی — این جلسه برات طراحی شده.</p>
-          <p><strong>یه جلسه، یه مشکل مشخص، یه راه‌حل واقعی.</strong></p>
-          <div class="edu-price">۱ ساعت — ۱،۵۰۰،۰۰۰ تومان</div>
-          <a href="https://wa.me/989304009383" target="_blank" rel="noopener" class="btn btn-gold btn-block">رزرو جلسه</a>
-        </div>
-
-        <div class="lead-magnet">
-          <h4>۵۰ پرامپت ویژه کسب‌وکارها — رایگان</h4>
-          <p>دیگه لازم نیست خودت پرامپت بسازی و وقت بگذاری</p>
-          <p>شماره و حیطه کاریت رو بذار، پرامپت‌ها رو بگیر.</p>
-          <form id="promptForm">
-            <div class="form-group">
-              <label for="promptphone">شماره تماس</label>
-              <input type="tel" id="promptphone" name="promptphone" placeholder="09xxxxxxxxx" required>
-            </div>
-            <div class="form-group">
-              <label for="promptcategory">حیطه کاری</label>
-              <select id="promptcategory" name="promptcategory" required>
-                <option value="" disabled selected>انتخاب کن</option>
-                <option value="رستوران/کافه/غذا">رستوران/کافه/غذا</option>
-                <option value="کلینیک زیبایی/سلامت">کلینیک زیبایی/سلامت</option>
-                <option value="فروشگاه/محصول">فروشگاه/محصول</option>
-                <option value="ادمین/فریلنسر">ادمین/فریلنسر</option>
-                <option value="خدمات">خدمات</option>
-                <option value="سایر">سایر</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="promptemail">ایمیل (اختیاری)</label>
-              <input type="email" id="promptemail" name="promptemail" placeholder="example@email.com">
-            </div>
-            <button type="submit" class="btn btn-gold btn-block">دریافت رایگان</button>
+            <button type="submit" class="btn btn-primary">ارسال پیام</button>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio">
+  </main>
+
+  <footer>
     <div class="container">
-      <span class="section-label">نمونه‌کار</span>
-      <h2>یه نمونه از کارهام</h2>
-      <p style="opacity:0.7; font-size:0.9em;">نمونه‌ی مفهومی</p>
-      <p class="lead">
-        یکی از پروژه‌های اخیر؛ محتوای ویدیویی برای یک برند برگر، با ترکیب عکاسی، ادیت
-        و کمک ابزارهای هوش مصنوعی. هدفش محتوایی بود که هم زیبا باشه، هم مخاطب رو نگه داره.
-      </p>
-      <style>
-        /* Temporary Masonry Styles */
-        .masonry-grid {
-          columns: 3 300px;
-          column-gap: 24px;
-          margin-top: 40px;
-        }
-        .masonry-item {
-          break-inside: avoid;
-          margin-bottom: 24px;
-          position: relative;
-          border-radius: 24px;
-          overflow: hidden;
-          box-shadow: 0 10px 30px rgba(38,33,28,.06);
-          cursor: pointer;
-          background: var(--border);
-        }
-        .masonry-overlay {
-          position: absolute;
-          inset: 0;
-          background: rgba(92, 15, 28, 0.85); /* Bordeaux transparent */
-          backdrop-filter: blur(6px);
-          -webkit-backdrop-filter: blur(6px);
-          color: #fff;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 24px;
-          opacity: 0;
-          transition: opacity 0.35s ease;
-          text-align: center;
-        }
-        .masonry-item:hover .masonry-overlay {
-          opacity: 1;
-        }
-        .masonry-overlay h3 {
-          font-size: 1.3rem;
-          margin-bottom: 8px;
-          color: #fff;
-          transform: translateY(15px);
-          transition: transform 0.35s ease;
-        }
-        .masonry-item:hover .masonry-overlay h3 {
-          transform: translateY(0);
-        }
-        .masonry-overlay p {
-          font-size: 0.95rem;
-          margin-bottom: 24px;
-          color: rgba(255,255,255,0.85);
-          transform: translateY(15px);
-          transition: transform 0.35s ease 0.05s;
-        }
-        .masonry-item:hover .masonry-overlay p {
-          transform: translateY(0);
-        }
-        .masonry-overlay .btn-masonry {
-          background: #fff;
-          color: var(--accent);
-          padding: 10px 26px;
-          border-radius: 12px;
-          font-weight: 600;
-          font-size: 0.9rem;
-          transform: translateY(15px);
-          transition: transform 0.35s ease 0.1s, background 0.2s;
-        }
-        .masonry-item:hover .masonry-overlay .btn-masonry {
-          transform: translateY(0);
-        }
-        .masonry-overlay .btn-masonry:hover {
-          background: var(--bg);
-        }
-      </style>
-
-      <div class="masonry-grid">
-        <!-- پروژه برگر -->
-        <div class="masonry-item">
-          <video src="برگرmp4.mp4" muted loop playsinline style="width:100%; display:block; object-fit:cover;"></video>
-          <div class="masonry-overlay">
-            <h3>عنوان پروژه برگر</h3>
-            <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
-            <span class="btn-masonry">مشاهده پروژه</span>
-          </div>
-        </div>
-        
-        <!-- پروژه ۲ -->
-        <div class="masonry-item">
-          <video src="project2.mp4" muted loop playsinline style="width:100%; display:block; object-fit:cover; aspect-ratio: 4/5; background: #e2d9cd;"></video>
-          <div class="masonry-overlay">
-            <h3>عنوان پروژه دوم</h3>
-            <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
-            <span class="btn-masonry">مشاهده پروژه</span>
-          </div>
-        </div>
-
-        <!-- پروژه ۳ -->
-        <div class="masonry-item">
-          <video src="project3.mp4" muted loop playsinline style="width:100%; display:block; object-fit:cover; aspect-ratio: 1/1.2; background: rgba(92,15,28,0.1);"></video>
-          <div class="masonry-overlay">
-            <h3>عنوان پروژه سوم</h3>
-            <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
-            <span class="btn-masonry">مشاهده پروژه</span>
-          </div>
-        </div>
-
-        <!-- پروژه ۴ -->
-        <div class="masonry-item">
-          <video src="project4.mp4" muted loop playsinline style="width:100%; display:block; object-fit:cover; aspect-ratio: 3/4; background: #eeddd2;"></video>
-          <div class="masonry-overlay">
-            <h3>عنوان پروژه چهارم</h3>
-            <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
-            <span class="btn-masonry">مشاهده پروژه</span>
-          </div>
-        </div>
-      </div>
+      <p class="foot-tagline">مسیرم از دل تجربه‌ست</p>
+      <p>© ۱۴۰۵ الناز بهرامی — تمام حقوق محفوظ است</p>
     </div>
-  </section>
+  </footer>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <span class="section-label">تماس</span>
-      <h2>بیا گفتگو رو شروع کنیم</h2>
-      <p class="lead">
-        برای همکاری در پروژه‌های محتوایی، ثبت‌نام در دوره‌های آموزشی، یا فقط یه گفتگوی دوستانه
-        درباره‌ی هوش مصنوعی و محتوا، خوشحال می‌شم ازت بشنوم.
-      </p>
-
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>راه‌های ارتباطی</h3>
-          <p>پیامت رو بفرست یا از راه‌های زیر در ارتباط باش؛ معمولاً ظرف ۲۴ ساعت پاسخ می‌دم.</p>
-
-          <a class="contact-item" href="mailto:elibahrami1995@gmail.com">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            </div>
-            <div class="ci-text">
-              <div class="ci-label">ایمیل</div>
-              <div class="ci-value">elibahrami1995@gmail.com</div>
-            </div>
-          </a>
-
-          <a class="contact-item" href="https://instagram.com/elna1zbahramii" target="_blank" rel="noopener">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg>
-            </div>
-            <div class="ci-text">
-              <div class="ci-label">اینستاگرام</div>
-              <div class="ci-value">elna1zbahramii</div>
-            </div>
-          </a>
-
-          <a class="contact-item" href="https://wa.me/989304009383" target="_blank" rel="noopener">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-1.9 5.4L21 21l-4.3-1.1a8.5 8.5 0 1 1 4.3-8.4z"/></svg>
-            </div>
-            <div class="ci-text">
-              <div class="ci-label">واتساپ</div>
-              <div class="ci-value">۰۹۳۰۴۰۰۹۳۸۳</div>
-            </div>
-          </a>
-
-          <div class="contact-item">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            </div>
-            <div class="ci-text">
-              <div class="ci-label">موقعیت</div>
-              <div class="ci-value">اهواز، ایران</div>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">نام و نام خانوادگی</label>
-              <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required>
-            </div>
-            <div class="form-group">
-              <label for="email">ایمیل</label>
-              <input type="email" id="email" name="email" placeholder="example@email.com" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="subject">موضوع</label>
-            <input type="text" id="subject" name="subject" placeholder="مثلاً: همکاری در پروژه محتوا">
-          </div>
-          <div class="form-group">
-            <label for="message">پیام شما</label>
-            <textarea id="message" name="message" placeholder="کمی درباره‌ی پروژه یا درخواستت بنویس..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">ارسال پیام</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <p class="foot-tagline">مسیرم از دل تجربه‌ست</p>
-    <p>© ۱۴۰۵ الناز بهرامی — تمام حقوق محفوظ است</p>
-  </div>
-</footer>
-
-<script>
-  // Mobile menu toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('open'));
-  });
-
-  // Contact form -> open mail client with filled data
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value || 'تماس از طریق سایت';
-    const message = document.getElementById('message').value;
-
-    const body = `نام: ${name}\nایمیل: ${email}\n\n${message}`;
-    const mailto = `mailto:elibahrami1995@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-  });
-
-  // AI class registration form -> WhatsApp
-  const classForm = document.getElementById('classForm');
-  classForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const lines = [
-      'سلام، می‌خوام برای کلاس نیمه خصوصی AI ثبت‌نام کنم:',
-      `اسم: ${document.getElementById('classname').value}`,
-      `حیطه فعالیت: ${document.getElementById('classrole').value}`,
-      `نوع کسب‌وکار: ${document.getElementById('classbiz').value}`,
-    ];
-    const exp = document.getElementById('classexp').value;
-    if (exp) lines.push(`سابقه کار: ${exp}`);
-    lines.push(`تجربه قبلی با AI: ${classForm.querySelector('input[name="classai"]:checked').value}`);
-    const goal = document.getElementById('classgoal').value;
-    if (goal) lines.push(`هدف از کلاس: ${goal}`);
-
-    window.open(`https://wa.me/989304009383?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
-  });
-
-  // Free prompt pack form -> WhatsApp
-  const promptForm = document.getElementById('promptForm');
-  promptForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const lines = [
-      'سلام، می‌خوام پکیج ۵۰ پرامپت رایگان رو دریافت کنم:',
-      `شماره تماس: ${document.getElementById('promptphone').value}`,
-      `حیطه کاری: ${document.getElementById('promptcategory').value}`,
-    ];
-    const email2 = document.getElementById('promptemail').value;
-    if (email2) lines.push(`ایمیل: ${email2}`);
-
-    window.open(`https://wa.me/989304009383?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
-  });
-
-  // Intersection Observer reveal animations
-  (function(){
-    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-    const STAGGER=110;
-    const singles=[
-      '#about .section-label','#about .about-text',
-      '#journey h2',
-      '#brands .section-label','#brands h2','#brands .lead','#brands .cta-box',
-      '#education .section-label','#education h2','#education .lead','#education .edu-feature',
-      '#portfolio .section-label','#portfolio h2','#portfolio .lead',
-      '#contact .section-label','#contact h2','#contact .lead',
-    ];
-    const groups=[
-      '#about .stat-card',
-      '#about .value-card',
-      '#journey .timeline-item',
-      '#brands .pricing-card',
-      '#brands .process-step',
-      '#education .edu-card, #education .lead-magnet',
-      '#portfolio .masonry-item',
-      '#contact .contact-info, #contact .contact-form',
-    ];
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('is-visible');
-          observer.unobserve(e.target);
-        }
-      });
-    },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-
-    singles.forEach(sel=>{
-      document.querySelectorAll(sel).forEach(el=>{
-        el.classList.add('reveal');
-        observer.observe(el);
-      });
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
     });
-    groups.forEach(sel=>{
-      document.querySelectorAll(sel).forEach((el,i)=>{
-        el.classList.add('reveal');
-        el.style.transitionDelay=`${i*STAGGER}ms`;
-        observer.observe(el);
-      });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
-  })();
-</script>
+
+    // Contact form -> open mail client with filled data
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value || 'تماس از طریق سایت';
+      const message = document.getElementById('message').value;
+
+      const body = `نام: ${name}\nایمیل: ${email}\n\n${message}`;
+      const mailto = `mailto:elibahrami1995@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+
+    // AI class registration form -> WhatsApp
+    const classForm = document.getElementById('classForm');
+    classForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const lines = [
+        'سلام، می‌خوام برای کلاس نیمه خصوصی AI ثبت‌نام کنم:',
+        `اسم: ${document.getElementById('classname').value}`,
+        `حیطه فعالیت: ${document.getElementById('classrole').value}`,
+        `نوع کسب‌وکار: ${document.getElementById('classbiz').value}`,
+      ];
+      const exp = document.getElementById('classexp').value;
+      if (exp) lines.push(`سابقه کار: ${exp}`);
+      lines.push(`تجربه قبلی با AI: ${classForm.querySelector('input[name="classai"]:checked').value}`);
+      const goal = document.getElementById('classgoal').value;
+      if (goal) lines.push(`هدف از کلاس: ${goal}`);
+
+      window.open(`https://wa.me/989304009383?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+    });
+
+    // Free prompt pack form -> WhatsApp
+    const promptForm = document.getElementById('promptForm');
+    promptForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const lines = [
+        'سلام، می‌خوام پکیج ۵۰ پرامپت رایگان رو دریافت کنم:',
+        `شماره تماس: ${document.getElementById('promptphone').value}`,
+        `حیطه کاری: ${document.getElementById('promptcategory').value}`,
+      ];
+      const email2 = document.getElementById('promptemail').value;
+      if (email2) lines.push(`ایمیل: ${email2}`);
+
+      window.open(`https://wa.me/989304009383?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+    });
+
+    // Intersection Observer reveal animations
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+      const STAGGER = 110;
+      const singles = [
+        '#about .section-label', '#about .about-text',
+        '#journey h2',
+        '#brands .section-label', '#brands h2', '#brands .lead', '#brands .cta-box',
+        '#education .section-label', '#education h2', '#education .lead', '#education .edu-feature',
+        '#portfolio .section-label', '#portfolio h2', '#portfolio .lead',
+        '#contact .section-label', '#contact h2', '#contact .lead',
+      ];
+      const groups = [
+        '#about .stat-card',
+        '#about .value-card',
+        '#journey .timeline-item',
+        '#brands .pricing-card',
+        '#brands .process-step',
+        '#education .edu-card, #education .lead-magnet',
+        '#portfolio .masonry-item',
+        '#contact .contact-info, #contact .contact-form',
+      ];
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+
+      singles.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => {
+          el.classList.add('reveal');
+          observer.observe(el);
+        });
+      });
+      groups.forEach(sel => {
+        document.querySelectorAll(sel).forEach((el, i) => {
+          el.classList.add('reveal');
+          el.style.transitionDelay = `${i * STAGGER}ms`;
+          observer.observe(el);
+        });
+      });
+    })();
+  </script>
 
 </body>
+
 </html>
 
+‍‍‍
