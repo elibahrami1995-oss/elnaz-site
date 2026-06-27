@@ -40,7 +40,7 @@
 
   ul{list-style:none;}
 
-  section{padding:90px 0;}
+  section{padding:120px 0;}
 
   .container{
     max-width:1140px;
@@ -61,6 +61,7 @@
   }
 
   h1,h2,h3,h4{font-weight:700;line-height:1.5;}
+  h1, h2 { letter-spacing: -0.02em; }
 
   h2{font-size:2.2rem;margin-bottom:18px;}
 
@@ -121,9 +122,12 @@
   .nav-links a{
     font-weight:500;
     font-size:.98rem;
-    color:var(--text);
     transition:color .2s;
     position:relative;
+  }
+
+  .nav-links a:not(.btn){
+    color:var(--text);
   }
 
   .nav-links a:not(.btn):hover{color:var(--accent);}
@@ -152,7 +156,7 @@
     align-items:center;
     gap:8px;
     padding:13px 30px;
-    border-radius:50px;
+    border-radius:14px !important;
     font-weight:600;
     font-size:.95rem;
     transition:all .25s ease;
@@ -193,38 +197,49 @@
   /* ===== Hero ===== */
   .hero{
     position:relative;
-    background:linear-gradient(150deg,var(--accent-dark) 0%, #4E0D18 55%, var(--accent) 100%);
-    color:var(--surface);
-    padding:120px 0 140px;
-    overflow:hidden;
-  }
-
-  .hero::before,
-  .hero::after{
-    content:'';
-    position:absolute;
-    border-radius:50%;
-    filter:blur(60px);
-    opacity:.35;
-  }
-  .hero::before{
-    width:380px;height:380px;
-    background:var(--accent-dark);
-    top:-120px;
-    inset-inline-end:-120px;
-  }
-  .hero::after{
-    width:300px;height:300px;
-    background:var(--accent);
-    bottom:-100px;
-    inset-inline-start:-80px;
-    opacity:.5;
+    background:var(--bg);
+    padding:60px 0 80px;
   }
 
   .hero-inner{
     position:relative;
     z-index:2;
-    max-width:760px;
+    max-width:960px;
+    margin: 0 auto;
+    background: linear-gradient(150deg,var(--accent-dark) 0%, #4E0D18 55%, var(--accent) 100%);
+    border-radius: 32px;
+    padding: 80px 60px;
+    color: var(--surface);
+    box-shadow: 0 20px 40px rgba(92,15,28,.15);
+    overflow: hidden;
+  }
+
+  .hero-inner::before,
+  .hero-inner::after{
+    content:'';
+    position:absolute;
+    border-radius:50%;
+    filter:blur(60px);
+    z-index: 0;
+  }
+  .hero-inner::before{
+    width:380px;height:380px;
+    background:var(--accent-dark);
+    top:-120px;
+    inset-inline-end:-120px;
+    opacity:.4;
+  }
+  .hero-inner::after{
+    width:300px;height:300px;
+    background:var(--surface);
+    bottom:-100px;
+    inset-inline-start:-80px;
+    opacity:.15;
+  }
+
+  .hero-inner > * {
+    position: relative;
+    z-index: 1;
   }
 
   .hero .section-label{
@@ -329,14 +344,41 @@
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:28px;
+    position: relative;
+  }
+
+  /* Blob پشت کارت‌ها برای مشخص شدن افکت شیشه‌ای */
+  .values::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    inset-inline-start: 50%;
+    transform: translate(50%, -50%); /* For RTL: 50% left to right */
+    width: 400px;
+    height: 400px;
+    background: var(--accent);
+    opacity: 0.08;
+    filter: blur(80px);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  html[dir="ltr"] .values::before {
+    transform: translate(-50%, -50%);
   }
 
   .value-card{
-    background:var(--surface);
-    border-radius:var(--radius);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
     padding:34px 28px;
-    box-shadow:var(--shadow);
+    box-shadow: 0 10px 40px rgba(38,33,28,.04);
     transition:transform .25s, box-shadow .25s;
+    position: relative;
+    z-index: 1;
   }
 
   .value-card:hover{
@@ -804,7 +846,7 @@
   .reveal{
     opacity:0;
     transform:translateY(28px);
-    transition:opacity .65s ease,transform .65s ease;
+    transition:opacity .5s ease-out,transform .5s ease-out;
   }
   .reveal.is-visible{
     opacity:1;
@@ -855,7 +897,8 @@
     }
     .nav-links .btn{margin-top:10px;}
 
-    .hero{padding:90px 0 100px;}
+    .hero{padding:40px 0 60px;}
+    .hero-inner { padding: 40px 24px; border-radius: 24px; }
     .hero h1{font-size:2.4rem;}
     .hero-tagline{font-size:1.15rem;}
 
@@ -900,18 +943,18 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container hero-inner">
-      <span class="section-label">متخصص تولید محتوا با هوش مصنوعی</span>
-      <h1>الناز بهرامی</h1>
-      <p class="hero-tagline">ذوق استراتژیک؛ مسیرم از دل تجربه‌ست</p>
-      <p class="lead">
-        ۷ سال تجربه در تولید محتوا، عکاسی و برندینگ رو با تازه‌ترین ابزارهای هوش مصنوعی ترکیب می‌کنم
-        تا محتوایی بسازم که هم سریع و مدرنه، هم با فکر و خاص؛ برای برندهایی که نمی‌خوان
-        محتوایشون شبیه بقیه‌ی محتواهای AI به نظر برسه.
-      </p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-gold">بیا همکاری کنیم</a>
-        <a href="#services" class="btn btn-outline">خدمات من</a>
+    <div class="container">
+      <div class="hero-inner">
+        <span class="section-label">متخصص تولید محتوا با هوش مصنوعی</span>
+        <h1>محتوای هوش مصنوعی، با ذوق استراتژیک</h1>
+        <p class="hero-tagline">برای برندهایی که می‌خوان با AI جلو بیفتن، نه شبیه بقیه بشن.</p>
+        <p class="lead">
+          ۷ سال تجربه در محتوا و برندینگ رو با ابزارهای روز AI ترکیب می‌کنم — محتوایی که هم سریع و مدرنه، هم با فکر و خاص.
+        </p>
+        <div class="hero-buttons">
+          <a href="#brands" class="btn btn-gold">خدمات من رو ببین</a>
+          <a href="#contact" class="btn btn-outline">بیا همکاری کنیم</a>
+        </div>
       </div>
     </div>
   </section>
@@ -925,12 +968,12 @@
           <h2>محتوای هوش مصنوعی با روح انسانی</h2>
           <p>
             اکثر محتوایی که با هوش مصنوعی ساخته می‌شه، یه شکل و یه لحن دارن.
-            من یه چیز دیگه اضافه می‌کنم: <strong>ذوق استراتژیک</strong>.
-            ترکیبی از فکر و استراتژی با حس و روح انسانی؛ چیزی که AI به‌تنهایی نمی‌تونه بسازه.
+            من یه چیز دیگه اضافه می‌کنم — ترکیبی از فکر و استراتژی با حس و روح انسانی؛ چیزی که AI به‌تنهایی نمی‌تونه بسازه.
+            برای برندی که با من کار می‌کنه، یعنی محتوا دیگه شبیه بقیه نیست.
           </p>
           <span class="quote-mark">«</span>
           <p>
-            از سال ۲۰۱۷ با عکاسی غذا و مدیریت پیج برندها شروع کردم،
+            از سال ۲۰۱۷ با عکاسی غذا شروع کردم — یه مدتم ادمین برندها بودم —
             و سال‌ها تجربه‌ی ساختن از صفر، بدون کلاس و بدون استاد. هر مرحله یه چیزی بهم اضافه کرد:
             چشم بصری، شناخت مخاطب، و توانایی ساختن مستقل.
           </p>
@@ -967,21 +1010,21 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5 13 14l-4.5 1.5L10 11l4.5-1.5z"/></svg>
           </div>
           <h3>کنجکاوی فعال</h3>
-          <p>دنیای AI هر هفته تغییر می‌کنه. جلوتر از موج می‌مونم؛ هر ابزار جدید رو تست می‌کنم و نتیجه‌ش رو وارد پروژه‌های واقعی می‌کنم.</p>
+          <p>دنیای AI هر هفته تغییر می‌کنه، من جلوتر از موج می‌مونم — یعنی برندت همیشه با تازه‌ترین ابزارها جلو می‌ره، نه عقب می‌مونه.</p>
         </div>
         <div class="value-card">
           <div class="icon-circle">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
           <h3>صداقت کاری</h3>
-          <p>اگه پروژه‌ای به درد برندت نخوره، می‌گم. اگه AI جوابگو نباشه، می‌گم. بدون اغراق و بدون ژست؛ حرف و نتیجه یکیه.</p>
+          <p>اگه پروژه‌ای به درد نخوره، می‌گم. اگه AI جوابگو نباشه، می‌گم — یعنی پولت رو روی چیزی که نتیجه نمی‌ده هدر نمی‌دی.</p>
         </div>
         <div class="value-card">
           <div class="icon-circle">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c0 4-3 7-7 7 4 0 7 3 7 7 0-4 3-7 7-7-4 0-7-3-7-7z"/></svg>
           </div>
           <h3>ساخت با روح</h3>
-          <p>هیچ کاری بی‌فکر ساخته نمی‌شه. هرچی می‌سازم هم زیباست، هم زنده‌ست؛ یه چیزی داره که مخاطب رو نگه می‌داره.</p>
+          <p>هیچ کاری بی‌فکر ساخته نمی‌شه. هرچی می‌سازم هم زیباست، هم زنده‌ست — یعنی محتوای برندت بین صدها پست دیگه گم نمی‌شه.</p>
         </div>
       </div>
     </div>
@@ -1018,7 +1061,7 @@
         <div class="timeline-item">
           <span class="timeline-year">۲۰۲۶ — الان</span>
           <h3>محتوای AI با روح انسانی</h3>
-          <p>۷ سال تجربه + ابزارهای AI = محتوایی که هم سریعه، هم زنده‌ست. این همون چیزیه که AI به‌تنهایی نمی‌تونه بسازه.</p>
+          <p>۷ سال تجربه + ابزارهای AI = محتوایی که AI به‌تنهایی نمی‌تونه بسازه. الان اینجام که همین رو برای برند تو هم بسازم.</p>
         </div>
       </div>
     </div>
@@ -1029,7 +1072,7 @@
     <div class="container">
       <span class="section-label">برندها</span>
       <h2>محتوای حرفه‌ای با هوش مصنوعی، برای برندی که نمی‌خواد شبیه بقیه باشه</h2>
-      <p class="lead">من محتوا می‌سازم — سریع، با فکر، و با روح. تو برند داری، من بقیه‌اش رو می‌دونم.</p>
+      <p class="lead">من محتوا می‌سازم — سریع، با فکر، و با روح. از فکر تا تولید، با هم پیش می‌ریم.</p>
 
       <div class="pricing-grid">
         <div class="pricing-card featured">
@@ -1075,7 +1118,7 @@
 
       <div class="cta-box">
         <h3>آماده‌ای شروع کنیم؟</h3>
-        <p>بهم بگو برندت چیه — بقیه‌اش با منه.</p>
+        <p>بهم بگو برندت چیه — از فکر تا تولید، با هم پیش می‌ریم.</p>
         <a href="https://wa.me/989304009383" target="_blank" rel="noopener" class="btn">واتساپ بزن</a>
       </div>
     </div>
@@ -1087,6 +1130,7 @@
       <span class="section-label">آموزش</span>
       <h2>یاد بگیر با AI کار کنی — نه فقط ازش استفاده کنی</h2>
       <p class="lead">آموزش کاربردی هوش مصنوعی، از کسی که خودش هر روز باهاش کار می‌کنه.</p>
+      <p>اگه وسط هزار ابزار و آموزش پراکنده گم شدی، اینجا یه مسیر روشن و عملی پیدا می‌کنی — نه تئوری خالی.</p>
 
       <div class="edu-feature">
         <span class="badge-pill">ظرفیت محدود</span>
@@ -1122,6 +1166,7 @@
           <li><span>✅</span><span>استراتژی محتوا بنویسی</span></li>
           <li><span>✅</span><span>پرامپت‌نویسی خلاقانه بلد بشی</span></li>
           <li><span>✅</span><span>تمام فایل‌ها و پرامپت‌های کلاس مال خودته — برای همیشه</span></li>
+          <p>یعنی از یه ادمین/فریلنسر ساده، به کسی تبدیل می‌شی که AI رو واقعاً بلده — و این مهارت رو می‌تونه به مشتری‌هاش هم بفروشه.</p>
         </ul>
 
         <form id="classForm">
@@ -1189,6 +1234,7 @@
 
         <div class="lead-magnet">
           <h4>۵۰ پرامپت ویژه کسب‌وکارها — رایگان</h4>
+          <p>دیگه لازم نیست خودت پرامپت بسازی و وقت بگذاری</p>
           <p>شماره و حیطه کاریت رو بذار، پرامپت‌ها رو بگیر.</p>
           <form id="promptForm">
             <div class="form-group">
@@ -1223,24 +1269,123 @@
     <div class="container">
       <span class="section-label">نمونه‌کار</span>
       <h2>یه نمونه از کارهام</h2>
+      <p style="opacity:0.7; font-size:0.9em;">نمونه‌ی مفهومی</p>
       <p class="lead">
         یکی از پروژه‌های اخیر؛ محتوای ویدیویی برای یک برند برگر، با ترکیب عکاسی، ادیت
         و کمک ابزارهای هوش مصنوعی. هدفش محتوایی بود که هم زیبا باشه، هم مخاطب رو نگه داره.
       </p>
-      <div class="portfolio-grid">
-        <div class="portfolio-video">
-          <video src="برگرmp4.mp4" controls muted loop playsinline></video>
+      <style>
+        /* Temporary Masonry Styles */
+        .masonry-grid {
+          columns: 3 300px;
+          column-gap: 24px;
+          margin-top: 40px;
+        }
+        .masonry-item {
+          break-inside: avoid;
+          margin-bottom: 24px;
+          position: relative;
+          border-radius: 24px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(38,33,28,.06);
+          cursor: pointer;
+          background: var(--border);
+        }
+        .masonry-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(92, 15, 28, 0.85); /* Bordeaux transparent */
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 24px;
+          opacity: 0;
+          transition: opacity 0.35s ease;
+          text-align: center;
+        }
+        .masonry-item:hover .masonry-overlay {
+          opacity: 1;
+        }
+        .masonry-overlay h3 {
+          font-size: 1.3rem;
+          margin-bottom: 8px;
+          color: #fff;
+          transform: translateY(15px);
+          transition: transform 0.35s ease;
+        }
+        .masonry-item:hover .masonry-overlay h3 {
+          transform: translateY(0);
+        }
+        .masonry-overlay p {
+          font-size: 0.95rem;
+          margin-bottom: 24px;
+          color: rgba(255,255,255,0.85);
+          transform: translateY(15px);
+          transition: transform 0.35s ease 0.05s;
+        }
+        .masonry-item:hover .masonry-overlay p {
+          transform: translateY(0);
+        }
+        .masonry-overlay .btn-masonry {
+          background: #fff;
+          color: var(--accent);
+          padding: 10px 26px;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 0.9rem;
+          transform: translateY(15px);
+          transition: transform 0.35s ease 0.1s, background 0.2s;
+        }
+        .masonry-item:hover .masonry-overlay .btn-masonry {
+          transform: translateY(0);
+        }
+        .masonry-overlay .btn-masonry:hover {
+          background: var(--bg);
+        }
+      </style>
+
+      <div class="masonry-grid">
+        <!-- پروژه برگر -->
+        <div class="masonry-item">
+          <video src="برگرmp4.mp4" muted loop playsinline style="width:100%; display:block; object-fit:cover;"></video>
+          <div class="masonry-overlay">
+            <h3>عنوان پروژه برگر</h3>
+            <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
+            <span class="btn-masonry">مشاهده پروژه</span>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>محتوای ویدیویی برند برگر</h3>
-          <p>
-            تولید و ادیت یک ویدیوی کوتاه برای شبکه‌های اجتماعی؛ با تمرکز روی نورپردازی،
-            ریتم و لحن انسانی، طوری که حس محتوای ماشینی نده.
-          </p>
-          <div class="tag-list">
-            <span class="tag">UGC</span>
-            <span class="tag">ویدیو و عکاسی</span>
-            <span class="tag">ادیت با AI</span>
+        
+        <!-- پروژه ۲ -->
+        <div class="masonry-item">
+          <video src="project2.mp4" muted loop playsinline style="width:100%; display:block; object-fit:cover; aspect-ratio: 4/5; background: #e2d9cd;"></video>
+          <div class="masonry-overlay">
+            <h3>عنوان پروژه دوم</h3>
+            <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
+            <span class="btn-masonry">مشاهده پروژه</span>
+          </div>
+        </div>
+
+        <!-- پروژه ۳ -->
+        <div class="masonry-item">
+          <video src="project3.mp4" muted loop playsinline style="width:100%; display:block; object-fit:cover; aspect-ratio: 1/1.2; background: rgba(92,15,28,0.1);"></video>
+          <div class="masonry-overlay">
+            <h3>عنوان پروژه سوم</h3>
+            <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
+            <span class="btn-masonry">مشاهده پروژه</span>
+          </div>
+        </div>
+
+        <!-- پروژه ۴ -->
+        <div class="masonry-item">
+          <video src="project4.mp4" muted loop playsinline style="width:100%; display:block; object-fit:cover; aspect-ratio: 3/4; background: #eeddd2;"></video>
+          <div class="masonry-overlay">
+            <h3>عنوان پروژه چهارم</h3>
+            <p>توضیح کوتاه پروژه در یک یا دو خط اینجا قرار می‌گیرد تا طراحی دیده شود.</p>
+            <span class="btn-masonry">مشاهده پروژه</span>
           </div>
         </div>
       </div>
@@ -1307,7 +1452,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="name">نام و نام خانوادگی</label>
-              <input type="text" id="name" name="name" placeholder="مثلاً: سارا محمدی" required>
+              <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required>
             </div>
             <div class="form-group">
               <label for="email">ایمیل</label>
@@ -1415,7 +1560,7 @@
       '#brands .pricing-card',
       '#brands .process-step',
       '#education .edu-card, #education .lead-magnet',
-      '#portfolio .portfolio-video, #portfolio .portfolio-content',
+      '#portfolio .masonry-item',
       '#contact .contact-info, #contact .contact-form',
     ];
     const observer=new IntersectionObserver(entries=>{
