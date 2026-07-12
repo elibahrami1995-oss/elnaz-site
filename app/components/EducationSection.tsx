@@ -25,7 +25,7 @@ export default function EducationSection() {
     e.preventDefault()
     const form = e.currentTarget
     const lines = [
-      'سلام، می‌خوام پکیج ۵۰ پرامپت رایگان رو دریافت کنم:',
+      'سلام، می‌خوام پکیج ۶۵ پرامپت رایگان رو دریافت کنم:',
       `شماره تماس: ${(form.elements.namedItem('promptphone') as HTMLInputElement).value}`,
       `حیطه کاری: ${(form.elements.namedItem('promptcategory') as HTMLSelectElement).value}`,
     ]
@@ -150,7 +150,7 @@ export default function EducationSection() {
           </div>
 
           <div className="lead-magnet">
-            <h4>۵۰ پرامپت ویژه کسب‌وکارها — رایگان</h4>
+            <h4>۶۵ پرامپت ویژه کسب‌وکارها — رایگان</h4>
             <p>دیگه لازم نیست خودت پرامپت بسازی و وقت بگذاری — شماره و حیطه کاریت رو بذار، پرامپت‌های آماده رو بگیر.</p>
             <form onSubmit={handlePromptForm}>
               <div className="form-group">
