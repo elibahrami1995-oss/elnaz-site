@@ -71,7 +71,7 @@ export default function EducationSection() {
 
           <h4>بعد از کلاس می‌تونی:</h4>
           <ul className="check-list">
-            <li><span>✅</span><span>عکس محصول حرفه‌ای با AI بسازی — بدون دوربین و فتوشوت</span></li>
+            <li><span>✅</span><span>عکس محصول حرفه‌ای با AI بسازی — بدون دوربین و فتوشاپ</span></li>
             <li><span>✅</span><span>ویدیوی برند تولید کنی</span></li>
             <li><span>✅</span><span>استراتژی محتوا بنویسی</span></li>
             <li><span>✅</span><span>پرامپت‌نویسی خلاقانه بلد بشی</span></li>
