@@ -173,7 +173,7 @@ export default function EducationSection() {
                 <label htmlFor="promptemail">ایمیل (اختیاری)</label>
                 <input type="email" id="promptemail" name="promptemail" placeholder="example@email.com" />
               </div>
-              <button type="submit" className="btn btn-gold btn-block">دریافت رایگان</button>
+              <a href="/downloads/prompt-booklet.pdf" download className="btn btn-gold btn-block" style={{display:'block',textAlign:'center'}}>دریافت رایگان</a>
             </form>
           </div>
         </div>
