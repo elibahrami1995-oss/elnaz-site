@@ -33,7 +33,7 @@ export default function JourneySection() {
           <div className="timeline-item">
             <span className="timeline-year">۲۰۲۶ — الان</span>
             <h3>محتوای AI با روح انسانی</h3>
-            <p>۷ سال تجربه + ابزارهای AI = محتوایی که هم سریعه، هم زنده‌ست. این همون چیزیه که AI به‌تنهایی نمی‌تونه بسازه.</p>
+            <p>۷ سال تجربه + ابزارهای AI = محتوایی که AI به‌تنهایی نمی‌تونه بسازه. الان اینجام که همین رو برای برند تو هم بسازم.</p>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ export default function BrandsSection() {
       <div className="container">
         <span className="section-label">برندها</span>
         <h2>محتوای حرفه‌ای با هوش مصنوعی، برای برندی که نمی‌خواد شبیه بقیه باشه</h2>
-        <p className="lead">من محتوا می‌سازم — سریع، با فکر، و با روح. تو برند داری، من بقیه‌اش رو می‌دونم.</p>
+        <p className="lead">من محتوا می‌سازم — سریع، با فکر، و با روح. از فکر تا تولید، با هم پیش می‌ریم.</p>
 
         <div className="pricing-grid">
           <div className="pricing-card featured">
@@ -21,7 +21,7 @@ export default function BrandsSection() {
           <div className="pricing-card">
             <h4>پکیج کامل</h4>
             <p>۹ پست (اسلایدی یا ریل) + استوری + آپلود + ادمین حضوری</p>
-            <div className="pricing-price">از ۳۰ میلیون تومان</div>
+            <div className="pricing-price">از ۳۵ میلیون تومان</div>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export default function BrandsSection() {
 
         <div className="cta-box">
           <h3>آماده‌ای شروع کنیم؟</h3>
-          <p>بهم بگو برندت چیه — بقیه‌اش با منه.</p>
+          <p>بهم بگو برندت چیه — از فکر تا تولید، با هم پیش می‌ریم.</p>
           <a href="https://wa.me/989304009383" target="_blank" rel="noopener noreferrer" className="btn">
             واتساپ بزن
           </a>

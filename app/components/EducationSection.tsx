@@ -40,6 +40,7 @@ export default function EducationSection() {
         <span className="section-label">آموزش</span>
         <h2>یاد بگیر با AI کار کنی — نه فقط ازش استفاده کنی</h2>
         <p className="lead">آموزش کاربردی هوش مصنوعی، از کسی که خودش هر روز باهاش کار می‌کنه.</p>
+        <p>اگه وسط هزار ابزار و آموزش پراکنده گم شدی، اینجا یه مسیر روشن و عملی پیدا می‌کنی — نه تئوری خالی.</p>
 
         <div className="edu-feature">
           <span className="badge-pill">ظرفیت محدود</span>
@@ -75,6 +76,7 @@ export default function EducationSection() {
             <li><span>✅</span><span>استراتژی محتوا بنویسی</span></li>
             <li><span>✅</span><span>پرامپت‌نویسی خلاقانه بلد بشی</span></li>
             <li><span>✅</span><span>تمام فایل‌ها و پرامپت‌های کلاس مال خودته — برای همیشه</span></li>
+          <li className="no-bullet"><p>یعنی از یه ادمین/فریلنسر ساده، به کسی تبدیل می‌شی که AI رو واقعاً بلده — و این مهارت رو می‌تونه به مشتری‌هاش هم بفروشه.</p></li>
           </ul>
 
           <form onSubmit={handleClassForm}>
@@ -149,7 +151,7 @@ export default function EducationSection() {
 
           <div className="lead-magnet">
             <h4>۵۰ پرامپت ویژه کسب‌وکارها — رایگان</h4>
-            <p>شماره و حیطه کاریت رو بذار، پرامپت‌ها رو بگیر.</p>
+            <p>دیگه لازم نیست خودت پرامپت بسازی و وقت بگذاری — شماره و حیطه کاریت رو بذار، پرامپت‌های آماده رو بگیر.</p>
             <form onSubmit={handlePromptForm}>
               <div className="form-group">
                 <label htmlFor="promptphone">شماره تماس</label>

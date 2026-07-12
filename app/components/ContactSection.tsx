@@ -86,7 +86,7 @@ export default function ContactSection() {
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">نام و نام خانوادگی</label>
-                <input type="text" id="name" name="name" placeholder="مثلاً: سارا محمدی" required />
+                <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required />
               </div>
               <div className="form-group">
                 <label htmlFor="email">ایمیل</label>
