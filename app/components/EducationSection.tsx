@@ -151,7 +151,7 @@ export default function EducationSection() {
 
           <div className="lead-magnet">
             <h4>۶۵ پرامپت ویژه کسب‌وکارها — رایگان</h4>
-            <p>دیگه لازم نیست خودت پرامپت بسازی و وقت بگذاری — شماره و حیطه کاریت رو بذار، پرامپت‌های آماده رو بگیر.</p>
+            <p>نمی‌دونی از کجا شروع کنی؟ این ۶۵ پرامپت آماده رو بگیر، مطابق بیزینس خودت تغییرش بده، و بدون سردرگمی شروع کن.</p>
             <form onSubmit={handlePromptForm}>
               <div className="form-group">
                 <label htmlFor="promptphone">شماره تماس</label>
