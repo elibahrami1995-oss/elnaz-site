@@ -4,7 +4,7 @@ export default function PortfolioSection() {
       <div className="container">
         <span className="section-label">نمونه‌کار</span>
         <h2>یه نمونه از کارهام</h2>
-        <p style={{opacity:0.7, fontSize:"0.9em"}}>نمونه‌ی مفهومی</p>
+        <p style={{ opacity: 0.7, fontSize: "0.9em" }}>نمونه‌ی مفهومی</p>
         <p className="lead">
           یکی از پروژه‌های اخیر؛ محتوای ویدیویی برای یک برند برگر، با ترکیب عکاسی، ادیت
           و کمک ابزارهای هوش مصنوعی. هدفش محتوایی بود که هم زیبا باشه، هم مخاطب رو نگه داره.
@@ -31,7 +31,7 @@ export default function PortfolioSection() {
           </div>
           <div className="portfolio-content">
             <h3>معرفی محصول برند دلکینی</h3>
-            <p style={{opacity:0.7, fontSize:"0.9em"}}>نمونه‌ی مفهومی</p>
+            <p style={{ opacity: 0.7, fontSize: "0.9em" }}>نمونه‌ی مفهومی</p>
             <p>
               ویدیوی معرفی محصول برای برند قهوه دلکینی؛ نمونه‌ای برای نشون دادن سبک تولید محتوای معرفی محصول.
             </p>
@@ -39,6 +39,38 @@ export default function PortfolioSection() {
               <span className="tag">معرفی محصول</span>
               <span className="tag">قهوه/رستوران</span>
               <span className="tag">ویدیو</span>
+            </div>
+          </div>
+
+          <div className="portfolio-video">
+            <video src="/citizen-watch.mp4" controls muted loop playsInline />
+          </div>
+          <div className="portfolio-content">
+            <h3>ویدیوی تبلیغاتی ساعت سیتیزن</h3>
+            <p>
+              نمونه‌ی مفهومی برای پرتفولیو؛ ساخته‌شده با ابزارهای هوش مصنوعی، با تمرکز روی
+              نورپردازی سینمایی و نمایش دقیق جزئیات محصول.
+            </p>
+            <div className="tag-list">
+              <span className="tag">تبلیغ محصول</span>
+              <span className="tag">ساعت</span>
+              <span className="tag">ویدیوی AI</span>
+            </div>
+          </div>
+
+          <div className="portfolio-video">
+            <video src="/jewelry.mp4" controls muted loop playsInline />
+          </div>
+          <div className="portfolio-content">
+            <h3>ویدیوی تبلیغاتی جواهر</h3>
+            <p>
+              نمونه‌ی مفهومی؛ محتوای ویدیویی لوکس برای معرفی محصول جواهرات، تولیدشده با
+              ابزارهای هوش مصنوعی.
+            </p>
+            <div className="tag-list">
+              <span className="tag">تبلیغ محصول</span>
+              <span className="tag">جواهر</span>
+              <span className="tag">ویدیوی AI</span>
             </div>
           </div>
         </div>
