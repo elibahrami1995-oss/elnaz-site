@@ -25,13 +25,20 @@ export default function EducationSection() {
     e.preventDefault()
     const form = e.currentTarget
     const lines = [
-      'سلام، می‌خوام پکیج ۶۵ پرامپت رایگان رو دریافت کنم:',
+      'سلام، می‌خوام پکیج ۷۵ پرامپت رایگان رو دریافت کنم:',
       `شماره تماس: ${(form.elements.namedItem('promptphone') as HTMLInputElement).value}`,
       `حیطه کاری: ${(form.elements.namedItem('promptcategory') as HTMLSelectElement).value}`,
     ]
     const email = (form.elements.namedItem('promptemail') as HTMLInputElement).value
     if (email) lines.push(`ایمیل: ${email}`)
     window.open(`https://wa.me/989304009383?text=${encodeURIComponent(lines.join('\n'))}`, '_blank')
+
+    const link = document.createElement('a')
+    link.href = '/75-prompts.pdf'
+    link.download = '75-پرامپت-رایگان.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
@@ -150,8 +157,8 @@ export default function EducationSection() {
           </div>
 
           <div className="lead-magnet">
-            <h4>۶۵ پرامپت ویژه کسب‌وکارها — رایگان</h4>
-            <p>نمی‌دونی از کجا شروع کنی؟ این ۶۵ پرامپت آماده رو بگیر، مطابق بیزینس خودت تغییرش بده، و بدون سردرگمی شروع کن.</p>
+            <h4>۷۵ پرامپت ویژه کسب‌وکارها — رایگان</h4>
+            <p>نمی‌دونی از کجا شروع کنی؟ این ۷۵ پرامپت آماده رو بگیر، مطابق بیزینس خودت تغییرش بده، و بدون سردرگمی شروع کن.</p>
             <form onSubmit={handlePromptForm}>
               <div className="form-group">
                 <label htmlFor="promptphone">شماره تماس</label>
@@ -173,7 +180,7 @@ export default function EducationSection() {
                 <label htmlFor="promptemail">ایمیل (اختیاری)</label>
                 <input type="email" id="promptemail" name="promptemail" placeholder="example@email.com" />
               </div>
-              <a href="/downloads/prompt-booklet.pdf" download className="btn btn-gold btn-block" style={{display:'block',textAlign:'center'}}>دریافت رایگان</a>
+              <button type="submit" className="btn btn-gold btn-block">دریافت رایگان</button>
             </form>
           </div>
         </div>
